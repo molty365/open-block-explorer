@@ -126,22 +126,38 @@ export default defineComponent({
 <style lang="sass">
 .account-card
   width: 550px
-  border-radius: 16px
+  border-radius: 20px
   margin-top: 1.5rem
   margin-left: auto
   margin-right: auto
   margin-bottom: 2rem
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15), 0 8px 32px rgba(0, 0, 0, 0.1)
-  border: 1px solid rgba(255, 255, 255, 0.08)
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2), 0 12px 48px rgba(79, 172, 254, 0.1)
+  border: 1px solid rgba(255, 255, 255, 0.1)
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%)
+  backdrop-filter: blur(12px)
+  position: relative
+  overflow: hidden
+
+  &::before
+    content: ''
+    position: absolute
+    top: 0
+    left: 0
+    right: 0
+    height: 3px
+    background: linear-gradient(90deg, #00D4FF 0%, #4FACFE 33%, #6366F1 66%, #A855F7 100%)
+    opacity: 0.9
 
 .tabs
   color: white
   max-width: 700px
   margin: 0 auto
-  border-radius: 12px 12px 0 0
-  background: rgba(255, 255, 255, 0.03)
-  backdrop-filter: blur(10px)
-  padding: 0 0.5rem
+  border-radius: 14px 14px 0 0
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.02) 100%)
+  backdrop-filter: blur(12px)
+  padding: 0.25rem 0.75rem
+  border: 1px solid rgba(255, 255, 255, 0.06)
+  border-bottom: none
 
 .header-support
   background: linear-gradient(180deg, #0A0E27 0%, #0D1229 100%) !important

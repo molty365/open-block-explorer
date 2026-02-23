@@ -730,18 +730,38 @@ $medium:750px
   width: fit-content
   margin: auto
 
+.text-title
+  font-weight: 700
+  letter-spacing: -0.02em
+  background: linear-gradient(135deg, #fff 0%, rgba(79, 172, 254, 0.9) 100%)
+  -webkit-background-clip: text
+  -webkit-text-fill-color: transparent
+  background-clip: text
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2))
+
 .text-subtitle
   text-transform: uppercase
   color: rgba(255, 255, 255, 0.5)
-  font-size: 12px
+  font-size: 11px
+  letter-spacing: 0.05em
+  font-weight: 500
   a
     cursor: pointer
     text-decoration: underline
+    color: rgba(79, 172, 254, 0.9)
+    transition: color 0.2s ease
+    &:hover
+      color: #4FACFE
 
 .total-amount
   color: white
-  font-size: 20px
-  font-weight: normal
+  font-size: 22px
+  font-weight: 700
+  letter-spacing: -0.02em
+  background: linear-gradient(135deg, #fff 0%, #4FACFE 100%)
+  -webkit-background-clip: text
+  -webkit-text-fill-color: transparent
+  background-clip: text
 
 .total-value
   font-weight: normal

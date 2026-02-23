@@ -174,18 +174,30 @@ $medium: 750px
     @media screen and (min-width: $medium)
         text-align: left !important
 
+    // Card-like container for each stat
+    position: relative
+    padding: 1rem 0.75rem
+    border-radius: 12px
+    background: linear-gradient(135deg, rgba(79, 172, 254, 0.03) 0%, rgba(99, 102, 241, 0.03) 100%)
+    margin: 0.25rem
+    transition: all 0.2s ease
+
+    &:hover
+        background: linear-gradient(135deg, rgba(79, 172, 254, 0.06) 0%, rgba(99, 102, 241, 0.06) 100%)
+        transform: translateY(-2px)
+
     p
         margin-bottom: 0.25rem
-        font-size: 0.75rem
+        font-size: 0.6875rem
         font-weight: 600
         text-transform: uppercase
-        letter-spacing: 0.05em
-        color: rgba(0, 0, 0, 0.45)
+        letter-spacing: 0.08em
+        color: rgba(0, 0, 0, 0.4)
 
 .border-line
     width: 40px
     height: 3px
-    background: linear-gradient(90deg, #4FACFE 0%, #6366F1 100%)
+    background: linear-gradient(90deg, #00D4FF 0%, #4FACFE 33%, #6366F1 66%, #A855F7 100%)
     border-radius: 2px
     margin-top: 0.5rem
     @media screen and (max-width: $medium)
@@ -198,10 +210,21 @@ $medium: 750px
     z-index: 1
     width: 100%
     background: #FFFFFF
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04), 0 8px 24px rgba(0, 0, 0, 0.06)
-    border-radius: 16px
-    border: 1px solid rgba(0, 0, 0, 0.04)
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04), 0 8px 32px rgba(0, 0, 0, 0.08)
+    border-radius: 18px
+    border: 1px solid rgba(99, 102, 241, 0.06)
     overflow: hidden
+    position: relative
+
+    &::before
+        content: ''
+        position: absolute
+        top: 0
+        left: 0
+        right: 0
+        height: 3px
+        background: linear-gradient(90deg, #00D4FF 0%, #4FACFE 33%, #6366F1 66%, #A855F7 100%)
+        opacity: 0.8
 
 .title
     font-style: normal
@@ -217,8 +240,11 @@ $medium: 750px
     font-weight: 700
     font-size: 1.5rem
     line-height: 1.3
-    color: #1A1A2E
-    letter-spacing: -0.01em
+    letter-spacing: -0.02em
+    background: linear-gradient(135deg, #1A1A2E 0%, #4FACFE 100%)
+    -webkit-background-clip: text
+    -webkit-text-fill-color: transparent
+    background-clip: text
 
 .highcharts-figure,
 .highcharts-data-table table
