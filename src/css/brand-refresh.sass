@@ -1,0 +1,123 @@
+// ==========================================
+// Telos Brand Refresh — OBE Modernization
+// ==========================================
+
+// --- Header: glassmorphism + sticky ---
+.q-header
+  backdrop-filter: blur(12px)
+  -webkit-backdrop-filter: blur(12px)
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06) !important
+
+// --- Search bar: modern rounded ---
+.search-input .q-field__control
+  border-radius: 12px !important
+  background: rgba(255, 255, 255, 0.08) !important
+  border: 1px solid rgba(255, 255, 255, 0.1) !important
+  transition: all 0.25s ease
+
+.search-input .q-field__control:focus-within
+  border-color: rgba(79, 172, 254, 0.5) !important
+  box-shadow: 0 0 0 3px rgba(79, 172, 254, 0.12)
+
+// --- Cards: softer shadows, bigger radius ---
+.q-card
+  border-radius: 14px !important
+  border: 1px solid rgba(0, 0, 0, 0.06)
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04) !important
+  transition: box-shadow 0.2s ease, transform 0.2s ease
+
+.q-card:hover
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08) !important
+
+// --- Buttons: gradient + modern radius ---
+.button-primary
+  border-radius: 10px !important
+  font-weight: 600
+  letter-spacing: 0.01em
+  transition: all 0.2s ease
+  box-shadow: 0 2px 8px rgba(79, 172, 254, 0.25)
+
+.button-primary:hover
+  box-shadow: 0 4px 20px rgba(79, 172, 254, 0.35)
+  transform: translateY(-1px)
+
+// --- Tab indicators: thicker, branded ---
+.q-tabs__content .q-tab--active
+  color: #4FACFE !important
+
+.q-tab-indicator
+  height: 3px !important
+  border-radius: 3px 3px 0 0 !important
+
+// --- Stats section: card-ify the stats ---
+.stats-container .q-item,
+.info-card
+  background: #fff
+  border-radius: 12px
+  border: 1px solid rgba(0, 0, 0, 0.05)
+  padding: 1rem
+
+// --- Producer cards (vote page): cleaner ---
+.producer-card
+  border-radius: 12px !important
+  transition: all 0.2s ease
+  border: 1px solid rgba(0, 0, 0, 0.06)
+
+.producer-card:hover
+  transform: translateY(-2px)
+  box-shadow: 0 6px 20px rgba(79, 172, 254, 0.12) !important
+
+// --- Links: brand colored ---
+a
+  color: #4FACFE
+  transition: color 0.15s ease
+
+a:hover
+  color: #6366F1
+
+// --- Transaction hashes: mono + subtle bg ---
+.monospace, .hash-text, .q-td .text-primary
+  font-family: 'JetBrains Mono', 'SF Mono', 'Fira Code', monospace
+  font-size: 0.85rem
+
+// --- Footer: cleaner separator ---
+.q-footer
+  border-top: 1px solid rgba(255, 255, 255, 0.06) !important
+
+// --- Scrollbar modernization ---
+::-webkit-scrollbar
+  width: 6px
+  height: 6px
+
+::-webkit-scrollbar-track
+  background: transparent
+
+::-webkit-scrollbar-thumb
+  background: rgba(99, 102, 241, 0.2)
+  border-radius: 3px
+
+::-webkit-scrollbar-thumb:hover
+  background: rgba(99, 102, 241, 0.4)
+
+// --- Price/value colors: brand aligned ---
+.text-positive
+  color: #16a34a !important
+
+.text-negative
+  color: #dc2626 !important
+
+// --- General polish ---
+body
+  font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif
+  -webkit-font-smoothing: antialiased
+  -moz-osx-font-smoothing: grayscale
+  letter-spacing: -0.01em
+
+// --- Mobile improvements ---
+@media (max-width: 599px)
+  .q-card
+    border-radius: 12px !important
+    margin: 0.5rem !important
+
+  .button-primary
+    border-radius: 8px !important
