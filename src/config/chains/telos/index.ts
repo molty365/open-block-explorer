@@ -42,28 +42,28 @@ const API_ENDPOINT = 'https://api.telos.net/v1';
 const S3_PRODUCER_BUCKET = 'https://telos-producer-validation.s3.amazonaws.com';
 const DISPLAY_MAP = true;
 const THEME = {
-    primary: '#571aff',
-    secondary: '#071A5F',
-    accent: '#9C27B0',
+    primary: '#4FACFE',
+    secondary: '#6366F1',
+    accent: '#A855F7',
     dark: '#1d1d1d',
     positive: '#21BA45',
     negative: '#ff0000',
     info: '#31CCEC',
     warning: '#F2C037',
-    'color-map': '#4325c2',
-    'color-primary-gradient': 'linear-gradient(90deg, #071A5F 0%, #571AFF 100%)',
+    'color-map': '#4FACFE',
+    'color-primary-gradient': 'linear-gradient(90deg, #00D4FF 0%, #4FACFE 33%, #6366F1 66%, #A855F7 100%)',
     'color-secondary-gradient':
-    'linear-gradient(180deg, #071A5F 0%, #571aff 147.34%)',
+    'linear-gradient(180deg, #4FACFE 0%, #6366F1 50%, #A855F7 100%)',
     'color-tertiary-gradient':
     'linear-gradient(90deg, #CBCAF5 0%, #A9CAF3 56.77%, #63C9EF 100%)',
-    'color-progress-gradient': '#571aff',
-    'color-producer-card-background': '#f5f4fe',
-    'color-select-box-background': '#e0dffb',
-    'color-header-background': '#071A5F',
-    'color-header-border': '#8a65d41a',
-    'color-header-support-background': 'linear-gradient(180deg, #071A5F 0%, #571aff 147.34%)',
-    'color-graph-shadow': '#571aff28',
-    'color-footer-background': '#071A5F',
+    'color-progress-gradient': '#4FACFE',
+    'color-producer-card-background': '#f0f2ff',
+    'color-select-box-background': '#e8e6ff',
+    'color-header-background': '#0A0E27',
+    'color-header-border': '#4FACFE1a',
+    'color-header-support-background': 'linear-gradient(180deg, #0A0E27 0%, #1a1f4e 100%)',
+    'color-graph-shadow': '#4FACFE28',
+    'color-footer-background': '#0A0E27',
 };
 
 export default class Telos extends BaseChain {
