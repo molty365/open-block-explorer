@@ -217,16 +217,61 @@ export default defineComponent({
     width: 100%
     &-row
       overflow-x: auto
+      display: flex
+      flex-direction: column
+      gap: 8px
     &-col
       min-width: 1000px
+
 .producer-card
   background: var(--q-color-producer-card-background)
+  border: 1px solid rgba(0, 0, 0, 0.04) !important
+  border-radius: 14px !important
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1)
+  overflow: hidden
+
+  &:hover
+    transform: translateY(-2px)
+    box-shadow: 0 8px 25px rgba(79, 172, 254, 0.12), 0 4px 10px rgba(0, 0, 0, 0.04) !important
+    border-color: rgba(79, 172, 254, 0.15) !important
+
 .select-box
   background: var(--q-color-select-box-background)
+  border-radius: 0 14px 14px 0
+  transition: background-color 0.2s ease
+
+  &:hover
+    background: rgba(99, 102, 241, 0.08)
+
 .hover-dec
   text-decoration: none
+  color: #1A1A2E
+  transition: color 0.2s ease
   &:hover
-    text-decoration: underline
-    color: black
+    text-decoration: none
+    color: #4FACFE
+
+// Rank number styling
+.text-h6
+  font-weight: 700
+  letter-spacing: -0.01em
+
+// Location text
+.text-body2
+  color: rgba(0, 0, 0, 0.5)
+  font-size: 0.8125rem
+
+// Header row
+.vd-table__list-col:first-child .q-card
+  background: transparent !important
+  border: none !important
+  box-shadow: none !important
+
+  .text-subtitle1
+    font-weight: 600
+    text-transform: uppercase
+    font-size: 0.75rem
+    letter-spacing: 0.05em
+    color: rgba(0, 0, 0, 0.5)
 
 </style>

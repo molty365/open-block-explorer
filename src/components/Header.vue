@@ -122,7 +122,10 @@ export default defineComponent({
 <style lang="sass" scoped>
 .q-tab
     text-transform: unset
-    font-size: 18px
+    font-size: 16px
+    font-weight: 500
+    letter-spacing: -0.01em
+    transition: all 0.2s ease
 
 .logo-header-container
     position: relative
@@ -141,7 +144,7 @@ export default defineComponent({
 
 .logo
   width: 104px
-  height:40px
+  height: 40px
   object-fit: contain
 
 .logo-token
@@ -156,9 +159,14 @@ export default defineComponent({
     font-size: 10px
     width: 100%
     height: min-content
-    padding: 4px 8px
-    border-radius: 4px
-    background-color: rgba(white, 0.1)
+    padding: 4px 12px
+    border-radius: 50px
+    background: linear-gradient(135deg, rgba(168, 85, 247, 0.3) 0%, rgba(99, 102, 241, 0.3) 100%)
+    backdrop-filter: blur(8px)
+    border: 1px solid rgba(255, 255, 255, 0.1)
+    text-transform: uppercase
+    letter-spacing: 0.05em
+    font-weight: 600
 
 .active-tab
   text-decoration: none
@@ -166,12 +174,16 @@ export default defineComponent({
   opacity: 1 !important
 
 .deactive
-  opacity: 0.65
-  font-size: 18px
+  opacity: 0.6
+  font-size: 16px
+  &:hover
+    opacity: 0.85
 
 .header-background
-  border-bottom: 2px solid var(--q-color-header-border)
-  background: var(--q-color-header-background)
-
+  background: rgba(10, 14, 39, 0.85)
+  backdrop-filter: blur(20px)
+  -webkit-backdrop-filter: blur(20px)
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06)
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.15)
 
 </style>

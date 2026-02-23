@@ -166,45 +166,59 @@ export default defineComponent({
 </template>
 
 <style lang="sass" scoped>
-$medium:750px
+$medium: 750px
+
 .chart-info
-    @media screen and (max-width: $medium) // screen < $medium
+    @media screen and (max-width: $medium)
         text-align: center !important
-    @media screen and (min-width: $medium) //screen > $medium
+    @media screen and (min-width: $medium)
         text-align: left !important
+
+    p
+        margin-bottom: 0.25rem
+        font-size: 0.75rem
+        font-weight: 600
+        text-transform: uppercase
+        letter-spacing: 0.05em
+        color: rgba(0, 0, 0, 0.45)
+
 .border-line
-    width: 19px
-    height: 2px
-    background: var(--q-primary)
-    border-radius: 4px
-    @media screen and (max-width: $medium) // screen < $medium
-        width: 156px !important
-        margin: auto
-        margin-buttom: 22px
-    @media screen and (min-width: $medium) //screen > $medium
-        width: 19px
+    width: 40px
+    height: 3px
+    background: linear-gradient(90deg, #4FACFE 0%, #6366F1 100%)
+    border-radius: 2px
+    margin-top: 0.5rem
+    @media screen and (max-width: $medium)
+        width: 100px !important
+        margin: 0.5rem auto 1.5rem auto
+    @media screen and (min-width: $medium)
+        width: 40px
+
 .price-box
     z-index: 1
     width: 100%
-    background-color:#ffffff
     background: #FFFFFF
-    box-shadow: 0px 9px 14px rgba(138, 101, 212, 0.1), 0px 1px 4px rgba(37, 42, 97, 0.3)
-    border-radius: 10px
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04), 0 8px 24px rgba(0, 0, 0, 0.06)
+    border-radius: 16px
+    border: 1px solid rgba(0, 0, 0, 0.04)
+    overflow: hidden
 
 .title
     font-style: normal
-    font-weight: normal
+    font-weight: 600
     font-size: 14px
     line-height: 17px
     text-transform: uppercase
-    color: #071A5F
+    color: rgba(0, 0, 0, 0.5)
+    letter-spacing: 0.05em
+
 .sub-title
     font-style: normal
-    font-weight: normal
-    font-size: 22.75px
-    line-height: 27px
-    color: var(--q-primary)
-    backdrop-filter: blur(14px)
+    font-weight: 700
+    font-size: 1.5rem
+    line-height: 1.3
+    color: #1A1A2E
+    letter-spacing: -0.01em
 
 .highcharts-figure,
 .highcharts-data-table table
@@ -214,33 +228,37 @@ $medium:750px
 
 .highcharts-data-table table
   border-collapse: collapse
-  border: 1px solid #ebebeb
+  border: 1px solid rgba(0, 0, 0, 0.06)
   margin: 10px auto
   text-align: center
   width: 100%
   max-width: 500px
+  border-radius: 8px
+  overflow: hidden
 
 .highcharts-data-table caption
   padding: 1em 0
   font-size: 1.2em
-  color: #555
+  color: rgba(0, 0, 0, 0.6)
 
 .highcharts-data-table th
   font-weight: 600
-  padding: 0.5em
+  padding: 0.75em
 
 .highcharts-data-table td,
 .highcharts-data-table th,
 .highcharts-data-table caption
-  padding: 0.5em
+  padding: 0.75em
 
 .highcharts-data-table thead tr,
 .highcharts-data-table tr:nth-child(even)
-  background: #f8f8f8
+  background: rgba(99, 102, 241, 0.03)
 
 .highcharts-data-table tr:hover
-  background: #f1f7ff
+  background: rgba(79, 172, 254, 0.08)
 
 .highcharts-description
-  height:250px
+  height: 250px
+  border-radius: 12px
+  overflow: hidden
 </style>

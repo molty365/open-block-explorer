@@ -61,30 +61,44 @@ export default defineComponent({
 <style scoped lang="sass">
 .container
   margin-top: 9rem
+
 hr
   content: ""
   display: block
   width: 50%
   border-size: 0.5rem
-  border : 0px
+  border: 0px
   border-top: 2px solid var(--q-primary)
   margin-left: 1rem
   margin-right: 1rem
+
 .hr-vertical
   content: ""
   display: block
   height: 100%
-  border-size: 0.5rem
-  border : 0px
-  border-right: 2px solid var(--q-primary)
+  border: 0px
+  border-right: 2px solid rgba(79, 172, 254, 0.3)
   margin-left: 1rem
   margin-right: 1rem
   margin-top: -0.1rem
 
+// Stats labels
+.text-weight-thin
+  font-weight: 500 !important
+  font-size: 0.75rem !important
+  letter-spacing: 0.08em
+  opacity: 0.6
+
+// Stats values
+.text-bold
+  font-weight: 700 !important
+  font-size: 1.25rem !important
+  letter-spacing: -0.01em
+
 @media screen and (max-width: 420px)
   .actor-font
     .text-bold
-        font-size: 18px
+        font-size: 1rem !important
     .text-weight-thin
-        font-size: 10px
+        font-size: 0.625rem !important
 </style>

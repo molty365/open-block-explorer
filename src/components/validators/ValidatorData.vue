@@ -297,6 +297,8 @@ export default defineComponent({
 <style lang="sass" scoped>
 .header-support
   height: auto
+  background: linear-gradient(180deg, #0A0E27 0%, #0F1433 100%) !important
+  padding-bottom: 2rem !important
 
 .card-gradient
   background: var(--q-color-secondary-gradient)
@@ -307,4 +309,33 @@ export default defineComponent({
   margin-top: auto
   margin-bottom: auto
   margin-left: 0.5rem
+  opacity: 0.7
+  transition: opacity 0.2s ease
+
+  &:hover
+    opacity: 1
+
+// Voting statistics card
+.q-card
+  border-radius: 16px !important
+  border: 1px solid rgba(0, 0, 0, 0.04)
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04), 0 8px 24px rgba(0, 0, 0, 0.04) !important
+
+// Stats labels
+.text-grey
+  color: rgba(0, 0, 0, 0.5) !important
+  font-weight: 500
+  font-size: 0.75rem
+  letter-spacing: 0.05em
+
+// Stats values
+.text-h5
+  font-weight: 700
+  letter-spacing: -0.01em
+
+// Vote button
+.q-btn
+  border-radius: 12px !important
+  font-weight: 600
+  letter-spacing: 0.01em
 </style>
