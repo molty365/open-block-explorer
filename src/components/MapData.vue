@@ -77,28 +77,73 @@ hr
   display: block
   height: 100%
   border: 0px
-  border-right: 2px solid rgba(79, 172, 254, 0.3)
+  border-right: 2px solid rgba(79, 172, 254, 0.2)
   margin-left: 1rem
   margin-right: 1rem
   margin-top: -0.1rem
+  position: relative
+
+  &::after
+    content: ''
+    position: absolute
+    top: 15%
+    right: -1px
+    width: 2px
+    height: 70%
+    background: linear-gradient(180deg, transparent 0%, rgba(79, 172, 254, 0.4) 50%, transparent 100%)
+    border-radius: 2px
 
 // Stats labels
 .text-weight-thin
   font-weight: 500 !important
-  font-size: 0.75rem !important
-  letter-spacing: 0.08em
-  opacity: 0.6
+  font-size: 0.6875rem !important
+  letter-spacing: 0.1em
+  opacity: 0.55
+  margin-bottom: 0.25rem
 
 // Stats values
 .text-bold
   font-weight: 700 !important
-  font-size: 1.25rem !important
-  letter-spacing: -0.01em
+  font-size: 1.375rem !important
+  letter-spacing: -0.02em
+  background: linear-gradient(135deg, #4FACFE 0%, #6366F1 50%, #A855F7 100%)
+  -webkit-background-clip: text
+  -webkit-text-fill-color: transparent
+  background-clip: text
+
+// Stats container styling
+.actor-font
+  padding: 0.75rem 0
+  position: relative
+
+  &::before
+    content: ''
+    position: absolute
+    top: 0
+    left: 50%
+    transform: translateX(-50%)
+    width: 80%
+    max-width: 600px
+    height: 100%
+    background: linear-gradient(180deg, rgba(79, 172, 254, 0.03) 0%, transparent 100%)
+    border-radius: 12px
+    pointer-events: none
+
+// Grey text override for map visible state
+.text-grey-3
+  .text-bold
+    background: linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(200,200,220,0.9) 100%)
+    -webkit-background-clip: text
+    -webkit-text-fill-color: transparent
+    background-clip: text
+  .text-weight-thin
+    opacity: 0.7
 
 @media screen and (max-width: 420px)
   .actor-font
     .text-bold
-        font-size: 1rem !important
+      font-size: 1.125rem !important
     .text-weight-thin
-        font-size: 0.625rem !important
+      font-size: 0.5625rem !important
+      letter-spacing: 0.08em
 </style>

@@ -126,12 +126,39 @@ export default defineComponent({
 <style lang="sass">
 .account-card
   width: 550px
-  border-radius: .5rem
-  margin-top: 1rem
+  border-radius: 16px
+  margin-top: 1.5rem
   margin-left: auto
   margin-right: auto
   margin-bottom: 2rem
-  box-shadow: none
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15), 0 8px 32px rgba(0, 0, 0, 0.1)
+  border: 1px solid rgba(255, 255, 255, 0.08)
+
 .tabs
   color: white
+  max-width: 700px
+  margin: 0 auto
+  border-radius: 12px 12px 0 0
+  background: rgba(255, 255, 255, 0.03)
+  backdrop-filter: blur(10px)
+  padding: 0 0.5rem
+
+.header-support
+  background: linear-gradient(180deg, #0A0E27 0%, #0D1229 100%) !important
+  padding-bottom: 0 !important
+  min-height: auto !important
+  height: auto !important
+
+// Tab panels with subtle transition
+.q-tab-panels
+  .q-tab-panel
+    animation: fadeIn 0.3s ease
+
+@keyframes fadeIn
+  from
+    opacity: 0
+    transform: translateY(8px)
+  to
+    opacity: 1
+    transform: translateY(0)
 </style>
