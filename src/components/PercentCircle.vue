@@ -79,13 +79,13 @@ export default defineComponent({
         <!-- Gradient definition -->
         <defs>
             <linearGradient id="gradient-stroke" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" style="stop-color:#00D4FF;stop-opacity:1" />
-                <stop offset="50%" style="stop-color:#4FACFE;stop-opacity:1" />
-                <stop offset="100%" style="stop-color:#A855F7;stop-opacity:1" />
+                <stop offset="0%" stop-color="#00D4FF" stop-opacity="1" />
+                <stop offset="50%" stop-color="#4FACFE" stop-opacity="1" />
+                <stop offset="100%" stop-color="#A855F7" stop-opacity="1" />
             </linearGradient>
             <linearGradient id="gradient-warning" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" style="stop-color:#FF6B6B;stop-opacity:1" />
-                <stop offset="100%" style="stop-color:#EE5A5A;stop-opacity:1" />
+                <stop offset="0%" stop-color="#FF6B6B" stop-opacity="1" />
+                <stop offset="100%" stop-color="#EE5A5A" stop-opacity="1" />
             </linearGradient>
             <!-- Glow filter -->
             <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
