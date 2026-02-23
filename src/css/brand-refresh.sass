@@ -1956,29 +1956,75 @@ a:focus-visible
     box-shadow: 0 2px 8px rgba(79, 172, 254, 0.3)
 
 // ==========================================
-// BREADCRUMB ENHANCEMENTS
+// BREADCRUMB ENHANCEMENTS — Premium Navigation
 // ==========================================
 
 .q-breadcrumbs
   font-size: 0.8125rem
+  padding: 0.5rem 0
 
   .q-breadcrumbs__el
     color: rgba(0, 0, 0, 0.5)
     font-weight: 500
-    transition: color 0.2s ease
-    padding: 0.25rem 0.5rem
-    border-radius: 6px
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1)
+    padding: 0.375rem 0.75rem
+    border-radius: 8px
+    position: relative
+
+    &::after
+      content: ''
+      position: absolute
+      bottom: 0
+      left: 50%
+      width: 0
+      height: 2px
+      background: linear-gradient(90deg, #4FACFE 0%, #6366F1 100%)
+      border-radius: 1px
+      transition: all 0.25s ease
+      transform: translateX(-50%)
 
     &:hover
       color: #4FACFE
-      background: rgba(79, 172, 254, 0.08)
+      background: linear-gradient(135deg, rgba(79, 172, 254, 0.06) 0%, rgba(99, 102, 241, 0.06) 100%)
+      transform: translateY(-1px)
+
+      &::after
+        width: 60%
 
   .q-breadcrumbs__separator
-    color: rgba(0, 0, 0, 0.3)
+    color: rgba(79, 172, 254, 0.4)
+    margin: 0 0.25rem
+
+    .q-icon
+      font-size: 16px
+      transition: color 0.2s ease
 
   .q-breadcrumbs__el--current
     color: #4FACFE
     font-weight: 600
+    background: linear-gradient(135deg, rgba(79, 172, 254, 0.1) 0%, rgba(99, 102, 241, 0.1) 100%)
+    border: 1px solid rgba(79, 172, 254, 0.15)
+
+    &::after
+      width: 60%
+      opacity: 0.6
+
+// Breadcrumbs on dark backgrounds
+.header-support .q-breadcrumbs,
+.bg-dark .q-breadcrumbs
+  .q-breadcrumbs__el
+    color: rgba(255, 255, 255, 0.5)
+
+    &:hover
+      color: #fff
+      background: linear-gradient(135deg, rgba(79, 172, 254, 0.12) 0%, rgba(99, 102, 241, 0.12) 100%)
+
+  .q-breadcrumbs__separator
+    color: rgba(79, 172, 254, 0.5)
+
+  .q-breadcrumbs__el--current
+    color: #fff
+    background: linear-gradient(135deg, rgba(79, 172, 254, 0.15) 0%, rgba(99, 102, 241, 0.15) 100%)
 
 // ==========================================
 // AVATAR & USER ICONS
@@ -2347,6 +2393,346 @@ a:focus-visible
   transition: all 0.25s ease
 
 // ==========================================
+// SKELETON LOADING — Premium Branded States
+// ==========================================
+
+// Skeleton base element
+.skeleton,
+.skeleton-box,
+[class*="skeleton-"]
+  position: relative
+  overflow: hidden
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.06) 0%, rgba(79, 172, 254, 0.04) 100%)
+  border-radius: 8px
+
+  &::before
+    content: ''
+    position: absolute
+    top: 0
+    left: -100%
+    width: 100%
+    height: 100%
+    background: linear-gradient(90deg, transparent 0%, rgba(79, 172, 254, 0.12) 25%, rgba(99, 102, 241, 0.12) 50%, rgba(79, 172, 254, 0.12) 75%, transparent 100%)
+    animation: skeleton-wave 1.8s cubic-bezier(0.4, 0, 0.2, 1) infinite
+
+@keyframes skeleton-wave
+  0%
+    left: -100%
+  100%
+    left: 100%
+
+// Skeleton variants
+.skeleton-text
+  height: 1rem
+  margin-bottom: 0.5rem
+  border-radius: 6px
+
+.skeleton-title
+  height: 1.5rem
+  width: 60%
+  margin-bottom: 0.75rem
+  border-radius: 8px
+
+.skeleton-avatar
+  width: 48px
+  height: 48px
+  border-radius: 12px
+
+.skeleton-card
+  padding: 1.5rem
+  border-radius: 16px
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.04) 0%, rgba(79, 172, 254, 0.02) 100%)
+  border: 1px solid rgba(99, 102, 241, 0.08)
+
+.skeleton-row
+  display: flex
+  gap: 1rem
+  margin-bottom: 0.75rem
+
+  .skeleton-cell
+    flex: 1
+    height: 2.5rem
+    border-radius: 8px
+
+// Table skeleton
+.skeleton-table
+  .skeleton-header
+    display: flex
+    gap: 1rem
+    padding: 1rem
+    background: linear-gradient(180deg, rgba(99, 102, 241, 0.04) 0%, transparent 100%)
+    border-radius: 12px 12px 0 0
+
+    .skeleton-cell
+      height: 1rem
+      flex: 1
+      border-radius: 4px
+      background: rgba(99, 102, 241, 0.08)
+
+  .skeleton-body
+    padding: 0.5rem
+
+    .skeleton-row
+      padding: 1rem
+      border-bottom: 1px solid rgba(99, 102, 241, 0.04)
+
+      &:last-child
+        border-bottom: none
+
+// Pulse loading indicator
+.loading-indicator
+  display: inline-flex
+  align-items: center
+  gap: 0.5rem
+  padding: 0.5rem 1rem
+  background: linear-gradient(135deg, rgba(79, 172, 254, 0.1) 0%, rgba(99, 102, 241, 0.1) 100%)
+  border-radius: 20px
+  border: 1px solid rgba(79, 172, 254, 0.2)
+
+  .loading-dot
+    width: 6px
+    height: 6px
+    border-radius: 50%
+    background: #4FACFE
+    animation: loading-bounce 1.4s ease-in-out infinite
+
+    &:nth-child(1)
+      animation-delay: 0s
+    &:nth-child(2)
+      animation-delay: 0.16s
+    &:nth-child(3)
+      animation-delay: 0.32s
+
+@keyframes loading-bounce
+  0%, 80%, 100%
+    transform: scale(0.6)
+    opacity: 0.4
+  40%
+    transform: scale(1)
+    opacity: 1
+
+// ==========================================
+// ACTION BADGES — Premium Table Styling
+// ==========================================
+
+// Action name badges in tables
+.action-badge,
+.action-chip
+  display: inline-flex
+  align-items: center
+  gap: 0.375rem
+  padding: 0.375rem 0.75rem
+  background: linear-gradient(135deg, rgba(79, 172, 254, 0.1) 0%, rgba(99, 102, 241, 0.1) 100%)
+  border: 1px solid rgba(79, 172, 254, 0.15)
+  border-radius: 8px
+  font-weight: 600
+  font-size: 0.75rem
+  letter-spacing: 0.02em
+  color: #4FACFE
+  transition: all 0.2s ease
+  position: relative
+  overflow: hidden
+
+  &::before
+    content: ''
+    position: absolute
+    top: 0
+    left: 0
+    right: 0
+    height: 1px
+    background: linear-gradient(90deg, transparent 0%, rgba(79, 172, 254, 0.3) 50%, transparent 100%)
+    opacity: 0
+    transition: opacity 0.2s ease
+
+  &:hover
+    background: linear-gradient(135deg, rgba(79, 172, 254, 0.15) 0%, rgba(99, 102, 241, 0.15) 100%)
+    border-color: rgba(79, 172, 254, 0.25)
+    transform: translateY(-1px)
+
+    &::before
+      opacity: 1
+
+// Action type variants
+.action-badge--transfer
+  background: linear-gradient(135deg, rgba(34, 197, 94, 0.1) 0%, rgba(16, 185, 129, 0.1) 100%)
+  border-color: rgba(34, 197, 94, 0.15)
+  color: #22c55e
+
+.action-badge--stake
+  background: linear-gradient(135deg, rgba(168, 85, 247, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%)
+  border-color: rgba(168, 85, 247, 0.15)
+  color: #A855F7
+
+.action-badge--vote
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.1) 0%, rgba(217, 119, 6, 0.1) 100%)
+  border-color: rgba(245, 158, 11, 0.15)
+  color: #f59e0b
+
+.action-badge--system
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(79, 70, 229, 0.1) 100%)
+  border-color: rgba(99, 102, 241, 0.15)
+  color: #6366F1
+
+// ==========================================
+// TOOLTIPS & POPOVERS — Premium Glassmorphism
+// ==========================================
+
+// Enhanced tooltips
+.q-tooltip
+  background: linear-gradient(135deg, rgba(10, 14, 39, 0.95) 0%, rgba(15, 20, 51, 0.95) 100%) !important
+  backdrop-filter: blur(16px)
+  -webkit-backdrop-filter: blur(16px)
+  border: 1px solid rgba(79, 172, 254, 0.15)
+  border-radius: 10px !important
+  padding: 0.625rem 1rem !important
+  font-size: 0.8125rem
+  font-weight: 500
+  color: rgba(255, 255, 255, 0.9) !important
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.05) inset
+  position: relative
+  overflow: hidden
+
+  &::before
+    content: ''
+    position: absolute
+    top: 0
+    left: 0
+    right: 0
+    height: 1px
+    background: linear-gradient(90deg, transparent 0%, rgba(79, 172, 254, 0.4) 50%, transparent 100%)
+
+// Info icon with tooltip hover
+.info-icon,
+.q-icon[name="info"],
+.q-icon[name="help"],
+.q-icon[name="help_outline"]
+  color: rgba(79, 172, 254, 0.6) !important
+  transition: all 0.25s ease
+  cursor: help
+
+  &:hover
+    color: #4FACFE !important
+    transform: scale(1.1)
+    filter: drop-shadow(0 0 8px rgba(79, 172, 254, 0.5))
+
+// Popup proxies (dropdown menus, date pickers)
+.q-popup-proxy
+  .q-menu
+    background: linear-gradient(180deg, rgba(15, 20, 51, 0.98) 0%, rgba(10, 14, 39, 0.98) 100%) !important
+    backdrop-filter: blur(20px)
+    -webkit-backdrop-filter: blur(20px)
+    border: 1px solid rgba(79, 172, 254, 0.12)
+    border-radius: 14px !important
+    box-shadow: 0 12px 48px rgba(0, 0, 0, 0.4), 0 4px 16px rgba(0, 0, 0, 0.2)
+    overflow: hidden
+
+    &::before
+      content: ''
+      position: absolute
+      top: 0
+      left: 0
+      right: 0
+      height: 2px
+      background: linear-gradient(90deg, #00D4FF 0%, #4FACFE 33%, #6366F1 66%, #A855F7 100%)
+      opacity: 0.8
+
+// ==========================================
+// COPY BUTTON FEEDBACK — Micro-interactions
+// ==========================================
+
+// Copy success animation
+.copy-success
+  animation: copy-success-pulse 0.5s ease
+
+@keyframes copy-success-pulse
+  0%
+    transform: scale(1)
+    background: transparent
+  50%
+    transform: scale(1.2)
+    background: rgba(34, 197, 94, 0.2)
+  100%
+    transform: scale(1)
+    background: transparent
+
+// Copy button styling
+.copy-btn,
+.q-btn[aria-label*="copy"],
+.q-btn[aria-label*="Copy"]
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1)
+
+  &:hover
+    color: #4FACFE !important
+    transform: scale(1.1)
+
+  &:active
+    transform: scale(0.95)
+    color: #22c55e !important
+
+// ==========================================
+// VALUE HIGHLIGHTS — Numbers & Stats
+// ==========================================
+
+// Highlighted values with gradient text
+.value-highlight,
+.stat-value-highlight
+  font-weight: 700
+  letter-spacing: -0.02em
+  background: linear-gradient(135deg, #4FACFE 0%, #6366F1 100%)
+  -webkit-background-clip: text
+  -webkit-text-fill-color: transparent
+  background-clip: text
+
+// Positive value (green)
+.value-positive
+  background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%)
+  -webkit-background-clip: text
+  -webkit-text-fill-color: transparent
+  background-clip: text
+
+// Negative value (red)
+.value-negative
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%)
+  -webkit-background-clip: text
+  -webkit-text-fill-color: transparent
+  background-clip: text
+
+// Currency/token amount styling
+.token-amount,
+.currency-value
+  font-family: 'JetBrains Mono', 'SF Mono', 'Consolas', monospace
+  font-weight: 600
+  letter-spacing: 0.01em
+
+// ==========================================
+// INLINE LABELS — Form & Info Labels
+// ==========================================
+
+// Premium inline labels
+.inline-label,
+.field-label
+  display: inline-flex
+  align-items: center
+  gap: 0.5rem
+  font-weight: 500
+  font-size: 0.75rem
+  letter-spacing: 0.06em
+  text-transform: uppercase
+  color: rgba(0, 0, 0, 0.45)
+  margin-bottom: 0.375rem
+
+  .q-icon
+    font-size: 14px
+    opacity: 0.6
+
+// Required field indicator
+.field-required::after
+  content: '*'
+  color: #ef4444
+  margin-left: 0.25rem
+  font-weight: 700
+
+// ==========================================
 // ACCOUNT PAGE DARK SECTIONS — Glassmorphism
 // ==========================================
 
@@ -2461,3 +2847,278 @@ a:focus-visible
     opacity: 1
     transform: scale(1.1)
     filter: drop-shadow(0 0 6px rgba(79, 172, 254, 0.5))
+
+// ==========================================
+// FLOATING LABELS — Premium Input Animations
+// ==========================================
+
+// Enhanced floating label effect
+.q-field--float .q-field__label
+  transform: translateY(-130%) scale(0.75)
+  transform-origin: left center
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1)
+  color: #4FACFE !important
+  font-weight: 500
+
+// Label animation on focus
+.q-field--focused .q-field__label
+  color: #4FACFE !important
+  text-shadow: 0 0 8px rgba(79, 172, 254, 0.3)
+
+// Input underline animation
+.q-field--standard .q-field__control::after,
+.q-field--filled .q-field__control::after
+  background: linear-gradient(90deg, #4FACFE 0%, #6366F1 50%, #A855F7 100%) !important
+  height: 2px !important
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1)
+
+// ==========================================
+// FOCUS RINGS — Premium Accessibility
+// ==========================================
+
+// Global focus ring style
+*:focus-visible
+  outline: 2px solid rgba(79, 172, 254, 0.5)
+  outline-offset: 2px
+  border-radius: 8px
+
+// Button focus ring
+.q-btn:focus-visible
+  outline: 2px solid rgba(79, 172, 254, 0.5)
+  outline-offset: 3px
+  box-shadow: 0 0 0 4px rgba(79, 172, 254, 0.15)
+
+// Input focus ring
+.q-field:focus-within .q-field__control
+  box-shadow: 0 0 0 4px rgba(79, 172, 254, 0.1), 0 4px 12px rgba(79, 172, 254, 0.08)
+
+// Link focus ring
+a:focus-visible
+  outline: 2px solid rgba(79, 172, 254, 0.5)
+  outline-offset: 2px
+  border-radius: 4px
+
+// Card focus ring
+.q-card:focus-within
+  box-shadow: 0 0 0 3px rgba(79, 172, 254, 0.15), 0 8px 24px rgba(0, 0, 0, 0.08) !important
+
+// ==========================================
+// RIPPLE EFFECTS — Premium Interactions
+// ==========================================
+
+// Custom ripple color for primary buttons
+.q-btn.bg-primary .q-ripple,
+.q-btn[color="primary"] .q-ripple
+  background: rgba(255, 255, 255, 0.3) !important
+
+// Ripple for cards and items
+.q-card .q-ripple,
+.q-item .q-ripple
+  background: rgba(79, 172, 254, 0.15) !important
+
+// ==========================================
+// LIST ITEMS — Premium Hover States
+// ==========================================
+
+// Enhanced list item styling
+.q-list .q-item
+  border-radius: 10px
+  margin: 2px 4px
+  transition: all 0.2s ease
+  position: relative
+
+  &::before
+    content: ''
+    position: absolute
+    left: 0
+    top: 50%
+    transform: translateY(-50%)
+    width: 3px
+    height: 0
+    background: linear-gradient(180deg, #4FACFE 0%, #6366F1 100%)
+    border-radius: 0 2px 2px 0
+    transition: height 0.2s ease
+
+  &:hover
+    background: linear-gradient(90deg, rgba(79, 172, 254, 0.08) 0%, transparent 100%)
+
+    &::before
+      height: 60%
+
+  &.q-item--active
+    background: linear-gradient(90deg, rgba(79, 172, 254, 0.12) 0%, rgba(99, 102, 241, 0.06) 100%)
+
+    &::before
+      height: 70%
+
+// ==========================================
+// ACCOUNT CARD — Premium Enhancements
+// ==========================================
+
+// Account card special styling
+.account-card
+  background: linear-gradient(135deg, #FFFFFF 0%, #FAFBFC 100%) !important
+  border-radius: 20px !important
+  border: 1px solid rgba(99, 102, 241, 0.08)
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04), 0 12px 40px rgba(0, 0, 0, 0.06) !important
+  position: relative
+  overflow: hidden
+
+  &::before
+    content: ''
+    position: absolute
+    top: 0
+    left: 0
+    right: 0
+    height: 4px
+    background: linear-gradient(90deg, #00D4FF 0%, #4FACFE 25%, #6366F1 50%, #A855F7 75%, #6366F1 100%)
+    background-size: 200% 100%
+    animation: gradient-flow 4s ease infinite
+
+@keyframes gradient-flow
+  0%
+    background-position: 0% 50%
+  50%
+    background-position: 100% 50%
+  100%
+    background-position: 0% 50%
+
+// Account name styling
+.account-name
+  font-weight: 700
+  font-size: 1.25rem
+  letter-spacing: -0.02em
+  background: linear-gradient(135deg, #1A1A2E 0%, #4FACFE 100%)
+  -webkit-background-clip: text
+  -webkit-text-fill-color: transparent
+  background-clip: text
+
+// ==========================================
+// RESOURCE BARS — Enhanced Visuals
+// ==========================================
+
+// Resource usage bars
+.resource-bar
+  background: rgba(99, 102, 241, 0.08)
+  border-radius: 8px
+  overflow: hidden
+  height: 8px
+
+  .resource-bar__fill
+    border-radius: 8px
+    height: 100%
+    transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1)
+
+    &.resource-bar__fill--low
+      background: linear-gradient(90deg, #22c55e 0%, #16a34a 100%)
+
+    &.resource-bar__fill--medium
+      background: linear-gradient(90deg, #f59e0b 0%, #d97706 100%)
+
+    &.resource-bar__fill--high
+      background: linear-gradient(90deg, #ef4444 0%, #dc2626 100%)
+
+    &.resource-bar__fill--critical
+      background: linear-gradient(90deg, #ef4444 0%, #dc2626 100%)
+      animation: pulse-critical 1s ease-in-out infinite
+
+@keyframes pulse-critical
+  0%, 100%
+    opacity: 1
+  50%
+    opacity: 0.7
+
+// ==========================================
+// QUICK ACTIONS — Button Group Polish
+// ==========================================
+
+// Quick action button group
+.quick-actions
+  display: flex
+  gap: 0.5rem
+  flex-wrap: wrap
+
+  .q-btn
+    border-radius: 10px !important
+    font-weight: 500
+    transition: all 0.25s ease
+
+    &:hover
+      transform: translateY(-2px)
+      box-shadow: 0 4px 12px rgba(79, 172, 254, 0.2)
+
+// ==========================================
+// DATA ROWS — Alternating & Hover
+// ==========================================
+
+// Premium data row styling
+.data-row
+  display: flex
+  justify-content: space-between
+  align-items: center
+  padding: 0.875rem 1rem
+  border-radius: 10px
+  transition: all 0.2s ease
+  position: relative
+
+  &:nth-child(even)
+    background: rgba(99, 102, 241, 0.02)
+
+  &:hover
+    background: linear-gradient(90deg, rgba(79, 172, 254, 0.06) 0%, transparent 100%)
+    transform: translateX(4px)
+
+  .data-row__label
+    font-weight: 500
+    font-size: 0.8125rem
+    color: rgba(0, 0, 0, 0.5)
+
+  .data-row__value
+    font-weight: 600
+    font-size: 0.875rem
+    color: #1A1A2E
+
+// ==========================================
+// SECTION HEADERS — Premium Styling
+// ==========================================
+
+// Section header with gradient accent
+.section-header
+  display: flex
+  align-items: center
+  gap: 0.75rem
+  margin-bottom: 1.25rem
+  padding-bottom: 0.75rem
+  border-bottom: 2px solid rgba(99, 102, 241, 0.08)
+  position: relative
+
+  &::after
+    content: ''
+    position: absolute
+    bottom: -2px
+    left: 0
+    width: 60px
+    height: 2px
+    background: linear-gradient(90deg, #4FACFE 0%, #6366F1 100%)
+    border-radius: 1px
+
+  .section-header__icon
+    width: 36px
+    height: 36px
+    display: flex
+    align-items: center
+    justify-content: center
+    border-radius: 10px
+    background: linear-gradient(135deg, rgba(79, 172, 254, 0.1) 0%, rgba(99, 102, 241, 0.1) 100%)
+    color: #4FACFE
+
+  .section-header__title
+    font-weight: 600
+    font-size: 1.125rem
+    letter-spacing: -0.01em
+    color: #1A1A2E
+
+  .section-header__subtitle
+    font-size: 0.8125rem
+    color: rgba(0, 0, 0, 0.5)
+    font-weight: 400
