@@ -219,47 +219,95 @@ export default defineComponent({
       overflow-x: auto
       display: flex
       flex-direction: column
-      gap: 8px
+      gap: 10px
     &-col
       min-width: 1000px
 
 .producer-card
-  background: var(--q-color-producer-card-background)
+  background: linear-gradient(180deg, #FFFFFF 0%, #FAFBFC 100%)
   border: 1px solid rgba(0, 0, 0, 0.04) !important
-  border-radius: 14px !important
-  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1)
+  border-radius: 16px !important
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1)
   overflow: hidden
+  position: relative
+
+  // Gradient top accent
+  &::before
+    content: ''
+    position: absolute
+    top: 0
+    left: 0
+    right: 0
+    height: 3px
+    background: linear-gradient(90deg, #00D4FF 0%, #4FACFE 33%, #6366F1 66%, #A855F7 100%)
+    opacity: 0
+    transition: opacity 0.3s ease
 
   &:hover
-    transform: translateY(-2px)
-    box-shadow: 0 8px 25px rgba(79, 172, 254, 0.12), 0 4px 10px rgba(0, 0, 0, 0.04) !important
-    border-color: rgba(79, 172, 254, 0.15) !important
+    transform: translateY(-4px)
+    box-shadow: 0 12px 32px rgba(79, 172, 254, 0.15), 0 4px 12px rgba(0, 0, 0, 0.06) !important
+    border-color: rgba(79, 172, 254, 0.2) !important
+
+    &::before
+      opacity: 0.8
 
 .select-box
-  background: var(--q-color-select-box-background)
-  border-radius: 0 14px 14px 0
-  transition: background-color 0.2s ease
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.04) 0%, rgba(79, 172, 254, 0.04) 100%)
+  border-radius: 0 16px 16px 0
+  border-left: 1px solid rgba(99, 102, 241, 0.08)
+  transition: all 0.2s ease
 
   &:hover
-    background: rgba(99, 102, 241, 0.08)
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.08) 0%, rgba(79, 172, 254, 0.08) 100%)
 
 .hover-dec
   text-decoration: none
   color: #1A1A2E
-  transition: color 0.2s ease
+  transition: all 0.2s ease
+  position: relative
+
+  &::after
+    content: ''
+    position: absolute
+    bottom: -2px
+    left: 0
+    width: 0
+    height: 2px
+    background: linear-gradient(90deg, #4FACFE 0%, #6366F1 100%)
+    transition: width 0.3s ease
+
   &:hover
-    text-decoration: none
     color: #4FACFE
 
-// Rank number styling
-.text-h6
+    &::after
+      width: 100%
+
+// Rank number styling — gradient badge
+.col-1 .text-h6
+  display: inline-flex
+  align-items: center
+  justify-content: center
+  min-width: 42px
+  height: 42px
+  background: linear-gradient(135deg, rgba(79, 172, 254, 0.12) 0%, rgba(99, 102, 241, 0.12) 100%)
+  border-radius: 12px
   font-weight: 700
-  letter-spacing: -0.01em
+  font-size: 1rem
+  letter-spacing: -0.02em
+  color: #4FACFE
+
+// BP name styling
+.col-3 .text-h6
+  font-weight: 700
+  letter-spacing: -0.02em
+  font-size: 1rem
 
 // Location text
 .text-body2
-  color: rgba(0, 0, 0, 0.5)
+  color: rgba(0, 0, 0, 0.45)
   font-size: 0.8125rem
+  font-weight: 500
+  margin-top: 0.25rem
 
 // Header row
 .vd-table__list-col:first-child .q-card
@@ -270,8 +318,59 @@ export default defineComponent({
   .text-subtitle1
     font-weight: 600
     text-transform: uppercase
-    font-size: 0.75rem
-    letter-spacing: 0.05em
-    color: rgba(0, 0, 0, 0.5)
+    font-size: 0.6875rem
+    letter-spacing: 0.08em
+    color: rgba(0, 0, 0, 0.4)
+
+// Chip styling
+:deep(.q-chip)
+  border-radius: 8px !important
+  font-weight: 600
+  font-size: 0.6875rem
+  letter-spacing: 0.04em
+  transition: all 0.2s ease
+
+  &[label="Producing"]
+    background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%) !important
+    box-shadow: 0 2px 8px rgba(34, 197, 94, 0.4)
+    animation: pulse-chip 2s ease-in-out infinite
+
+  &[label="Top 21"]
+    background: linear-gradient(135deg, #4FACFE 0%, #6366F1 100%) !important
+    box-shadow: 0 2px 8px rgba(79, 172, 254, 0.3)
+
+  &[label="Standby"]
+    background: linear-gradient(135deg, rgba(79, 172, 254, 0.15) 0%, rgba(99, 102, 241, 0.15) 100%) !important
+    color: #4FACFE !important
+    border: 1px solid rgba(79, 172, 254, 0.3) !important
+
+@keyframes pulse-chip
+  0%, 100%
+    box-shadow: 0 2px 8px rgba(34, 197, 94, 0.4)
+  50%
+    box-shadow: 0 2px 16px rgba(34, 197, 94, 0.6), 0 0 20px rgba(34, 197, 94, 0.3)
+
+// Votes badge
+:deep(.q-badge)
+  background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%) !important
+  border-radius: 6px
+  font-weight: 600
+  font-size: 0.625rem
+  letter-spacing: 0.04em
+  padding: 0.25rem 0.5rem
+  box-shadow: 0 2px 6px rgba(34, 197, 94, 0.3)
+
+// Mobile responsive
+@media screen and (max-width: 1100px)
+  .vd-table__list-col
+    min-width: 900px
+
+  .producer-card
+    border-radius: 14px !important
+
+  .col-1 .text-h6
+    min-width: 36px
+    height: 36px
+    font-size: 0.875rem
 
 </style>

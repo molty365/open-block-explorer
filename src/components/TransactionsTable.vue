@@ -913,24 +913,65 @@ export default defineComponent({
 $medium:920px
 
 .trx-table--title
-  font-size: 22.75px
+  font-size: 1.5rem !important
   font-style: normal
-  font-weight: 400
-  line-height: 27px
+  font-weight: 700 !important
+  line-height: 1.3
+  letter-spacing: -0.02em
+  background: linear-gradient(135deg, #1A1A2E 0%, #4FACFE 100%)
+  -webkit-background-clip: text
+  -webkit-text-fill-color: transparent
+  background-clip: text
 
 .trx-table--main-container
   width: 90%
 
 .trx-table--filter-buttons
-  gap: 10px 0px
+  gap: 10px 8px
+
+  .q-btn
+    border-radius: 10px !important
+    font-weight: 500
+    font-size: 0.8125rem
+    transition: all 0.25s ease
+
 .trx-table--fixed-layout
   .q-table
     table-layout: fixed
+
+    thead tr
+      background: linear-gradient(180deg, rgba(99, 102, 241, 0.03) 0%, transparent 100%)
+
+    th
+      font-weight: 700 !important
+      font-size: 0.6875rem !important
+      text-transform: uppercase !important
+      letter-spacing: 0.1em !important
+      color: rgba(0, 0, 0, 0.4) !important
+      border-bottom: 2px solid rgba(99, 102, 241, 0.1) !important
+      padding: 1.25rem 1rem !important
+
+    tbody tr
+      transition: all 0.2s ease
+      border-left: 3px solid transparent
+
+      &:hover
+        background: linear-gradient(90deg, rgba(79, 172, 254, 0.06) 0%, rgba(99, 102, 241, 0.03) 100%) !important
+        border-left-color: #4FACFE
+
     tbody td
-      height: 3.25rem
-      vertical-align: items-center
+      height: 3.5rem
+      vertical-align: middle
+      padding: 1rem !important
+      border-bottom: 1px solid rgba(0, 0, 0, 0.03) !important
+      font-size: 0.875rem
+
     tbody td:first-child
       word-break: break-all
+      font-family: 'JetBrains Mono', 'SF Mono', 'Consolas', monospace
+      font-size: 0.8125rem
+      font-weight: 500
+
     th:nth-child(1)
       width: 15%
     th:nth-child(2)
@@ -957,25 +998,58 @@ $medium:920px
   cursor: pointer
 
 .table-container
-    overflow-x: auto
+  overflow-x: auto
+  border-radius: 16px
 
 .table-header
-    color: #000000 !important
-    opacity: 0.5
+  color: #000000 !important
+  opacity: 0.5
 
 .hover-dec
   text-decoration: none
+  color: #4FACFE
+  position: relative
+
+  &::after
+    content: ''
+    position: absolute
+    bottom: -2px
+    left: 0
+    width: 0
+    height: 2px
+    background: linear-gradient(90deg, #4FACFE 0%, #6366F1 100%)
+    transition: width 0.3s ease
+
   &:hover
-    text-decoration: underline
+    color: #6366F1
+
+    &::after
+      width: 100%
 
 .dropdown-filter
   max-width: 300px
+  background: linear-gradient(180deg, #0F1433 0%, #0A0E27 100%)
+  border-radius: 14px
+  border: 1px solid rgba(79, 172, 254, 0.15)
 
 .expanded-row
-  background: var(--q-color-producer-card-background)
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.04) 0%, rgba(79, 172, 254, 0.04) 100%) !important
+  border-left: 3px solid rgba(99, 102, 241, 0.3) !important
 
 .q-btn.q-btn--no-text-transform
   text-transform: none
+
+// Separator styling
+.separator
+  background: linear-gradient(90deg, transparent 0%, rgba(99, 102, 241, 0.15) 50%, transparent 100%) !important
+  height: 2px
+
+// Toggle styling
+.q-toggle
+  .q-toggle__label
+    font-weight: 500
+    font-size: 0.8125rem
+    color: rgba(0, 0, 0, 0.6)
 
 @media screen and (max-width: $medium)
   .trx-table--topright-col
@@ -1005,5 +1079,8 @@ $medium:920px
 @media screen and (max-width: 665px)
   .trx-table--topleft-col, .trx-table--topright-col
     display: block
+
+  .trx-table--title
+    font-size: 1.25rem !important
 
 </style>
