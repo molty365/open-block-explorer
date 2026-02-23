@@ -1393,3 +1393,446 @@ a:focus-visible
   letter-spacing: 0.08em
   font-weight: 500
   font-size: 0.6875rem
+
+// ==========================================
+// SEARCH BAR — Premium Styling
+// ==========================================
+
+// Header search bar enhancement
+.search-input
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.04) 100%) !important
+  backdrop-filter: blur(12px)
+  border-radius: 14px !important
+  border: 1px solid rgba(255, 255, 255, 0.1) !important
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important
+  min-height: 44px
+  position: relative
+  overflow: hidden
+
+  &::before
+    content: ''
+    position: absolute
+    inset: 0
+    background: linear-gradient(90deg, rgba(79, 172, 254, 0.1) 0%, rgba(99, 102, 241, 0.1) 50%, rgba(168, 85, 247, 0.1) 100%)
+    opacity: 0
+    transition: opacity 0.3s ease
+    pointer-events: none
+    border-radius: 14px
+
+  &:hover
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.06) 100%) !important
+    border-color: rgba(79, 172, 254, 0.3) !important
+    transform: translateY(-1px)
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15)
+
+    &::before
+      opacity: 0.5
+
+  &:focus-within
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.08) 100%) !important
+    border-color: rgba(79, 172, 254, 0.5) !important
+    box-shadow: 0 0 0 4px rgba(79, 172, 254, 0.15), 0 8px 24px rgba(0, 0, 0, 0.2)
+    transform: translateY(-1px)
+
+    &::before
+      opacity: 1
+
+  .q-field__control
+    border-radius: 14px !important
+    min-height: 44px
+
+  .q-field__native,
+  .q-field__input
+    color: #fff !important
+    font-weight: 500
+    letter-spacing: 0.01em
+
+    &::placeholder
+      color: rgba(255, 255, 255, 0.5) !important
+      font-weight: 400
+
+  .q-icon
+    color: rgba(255, 255, 255, 0.7)
+    transition: all 0.25s ease
+
+  &:hover .q-icon,
+  &:focus-within .q-icon
+    color: #4FACFE
+    filter: drop-shadow(0 0 6px rgba(79, 172, 254, 0.5))
+
+// Search dropdown menu styling
+.search-input + .q-menu,
+.q-select__dropdown.search-input
+  background: linear-gradient(180deg, #0F1433 0%, #0A0E27 100%) !important
+  border: 1px solid rgba(79, 172, 254, 0.2)
+  border-radius: 14px !important
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.05) inset
+  overflow: hidden
+  backdrop-filter: blur(16px)
+
+  .q-item
+    border-radius: 10px
+    margin: 4px 8px
+    transition: all 0.2s ease
+
+    &:hover
+      background: linear-gradient(135deg, rgba(79, 172, 254, 0.15) 0%, rgba(99, 102, 241, 0.15) 100%) !important
+
+  .q-item-label
+    color: rgba(255, 255, 255, 0.9)
+    font-weight: 500
+
+  .q-item-label[header]
+    color: rgba(79, 172, 254, 0.8)
+    font-size: 0.6875rem
+    font-weight: 600
+    letter-spacing: 0.1em
+    text-transform: uppercase
+    padding: 0.75rem 1rem 0.25rem
+
+// ==========================================
+// EMPTY STATES & NO-DATA PATTERNS
+// ==========================================
+
+// Generic empty state container
+.empty-state,
+.no-data,
+.q-table__bottom--nodata
+  display: flex
+  flex-direction: column
+  align-items: center
+  justify-content: center
+  padding: 3rem 2rem
+  text-align: center
+  position: relative
+
+  &::before
+    content: ''
+    position: absolute
+    top: 50%
+    left: 50%
+    transform: translate(-50%, -50%)
+    width: 200px
+    height: 200px
+    background: radial-gradient(circle, rgba(79, 172, 254, 0.08) 0%, transparent 70%)
+    pointer-events: none
+
+// Empty state icon styling
+.empty-state-icon,
+.no-data .q-icon
+  font-size: 4rem
+  margin-bottom: 1rem
+  background: linear-gradient(135deg, #4FACFE 0%, #6366F1 50%, #A855F7 100%)
+  -webkit-background-clip: text
+  -webkit-text-fill-color: transparent
+  background-clip: text
+  opacity: 0.6
+  animation: float 3s ease-in-out infinite
+
+@keyframes float
+  0%, 100%
+    transform: translateY(0)
+  50%
+    transform: translateY(-8px)
+
+// Empty state title
+.empty-state-title,
+.q-table__bottom--nodata td
+  font-size: 1.125rem
+  font-weight: 600
+  color: rgba(0, 0, 0, 0.7)
+  margin-bottom: 0.5rem
+  letter-spacing: -0.01em
+
+// Empty state description
+.empty-state-description
+  font-size: 0.875rem
+  color: rgba(0, 0, 0, 0.5)
+  max-width: 300px
+  line-height: 1.5
+
+// Table no-data state
+.q-table tbody td.q-table__bottom--nodata
+  padding: 3rem 1rem !important
+  background: linear-gradient(180deg, rgba(99, 102, 241, 0.02) 0%, transparent 100%)
+
+  &::before
+    content: '📭'
+    display: block
+    font-size: 2.5rem
+    margin-bottom: 0.75rem
+    filter: grayscale(0.3)
+
+// List empty state
+.q-list:empty::after,
+.q-virtual-scroll__content:empty::after
+  content: 'No items to display'
+  display: block
+  padding: 2rem
+  text-align: center
+  color: rgba(0, 0, 0, 0.4)
+  font-size: 0.875rem
+
+// ==========================================
+// NOTIFICATIONS & TOASTS — Premium Polish
+// ==========================================
+
+// Notification container
+.q-notification
+  border-radius: 14px !important
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2), 0 4px 12px rgba(0, 0, 0, 0.1) !important
+  border: 1px solid rgba(255, 255, 255, 0.1)
+  backdrop-filter: blur(12px)
+  overflow: hidden
+  position: relative
+  animation: slideInNotification 0.35s cubic-bezier(0.4, 0, 0.2, 1)
+
+  &::before
+    content: ''
+    position: absolute
+    top: 0
+    left: 0
+    right: 0
+    height: 3px
+    background: linear-gradient(90deg, #4FACFE 0%, #6366F1 50%, #A855F7 100%)
+    opacity: 0.9
+
+@keyframes slideInNotification
+  0%
+    opacity: 0
+    transform: translateY(-20px) scale(0.95)
+  100%
+    opacity: 1
+    transform: translateY(0) scale(1)
+
+// Success notification
+.q-notification.bg-positive,
+.q-notification.bg-green,
+.q-notification[class*="green"]
+  background: linear-gradient(135deg, #16a34a 0%, #15803d 100%) !important
+
+  &::before
+    background: linear-gradient(90deg, #22c55e 0%, #16a34a 50%, #15803d 100%)
+
+// Error notification
+.q-notification.bg-negative,
+.q-notification.bg-red,
+.q-notification[class*="red"]
+  background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%) !important
+
+  &::before
+    background: linear-gradient(90deg, #ef4444 0%, #dc2626 50%, #b91c1c 100%)
+
+// Warning notification
+.q-notification.bg-warning,
+.q-notification.bg-orange,
+.q-notification[class*="orange"]
+  background: linear-gradient(135deg, #d97706 0%, #b45309 100%) !important
+
+  &::before
+    background: linear-gradient(90deg, #f59e0b 0%, #d97706 50%, #b45309 100%)
+
+// Info notification
+.q-notification.bg-info,
+.q-notification.bg-blue,
+.q-notification[class*="blue"]
+  background: linear-gradient(135deg, #4FACFE 0%, #6366F1 100%) !important
+
+  &::before
+    background: linear-gradient(90deg, #00D4FF 0%, #4FACFE 50%, #6366F1 100%)
+
+// Notification message text
+.q-notification__message
+  font-weight: 500
+  font-size: 0.875rem
+  letter-spacing: 0.01em
+  padding-top: 0.25rem
+
+// Notification actions
+.q-notification__actions
+  .q-btn
+    border-radius: 8px !important
+    font-weight: 600
+    backdrop-filter: blur(8px)
+
+// Notification icon
+.q-notification .q-icon
+  font-size: 1.25rem
+
+// Notification dismiss animation
+.q-notification--leave-active
+  animation: slideOutNotification 0.25s cubic-bezier(0.4, 0, 0.2, 1) forwards
+
+@keyframes slideOutNotification
+  0%
+    opacity: 1
+    transform: translateX(0)
+  100%
+    opacity: 0
+    transform: translateX(100px)
+
+// ==========================================
+// PROGRESS BAR ENHANCEMENTS
+// ==========================================
+
+// Large progress bar on voting page
+.q-linear-progress
+  border-radius: 12px !important
+  overflow: hidden
+  background: rgba(99, 102, 241, 0.1) !important
+
+  .q-linear-progress__track
+    opacity: 1
+
+  .q-linear-progress__model
+    border-radius: 12px !important
+
+// Gradient progress bar
+.gradient-color .q-linear-progress__model--determinate
+  background: linear-gradient(90deg, #00D4FF 0%, #4FACFE 25%, #6366F1 50%, #A855F7 75%, #6366F1 100%) !important
+  background-size: 200% 100%
+  animation: progress-shimmer 3s ease-in-out infinite
+
+@keyframes progress-shimmer
+  0%
+    background-position: 0% 50%
+  50%
+    background-position: 100% 50%
+  100%
+    background-position: 0% 50%
+
+// Large progress bar styling
+.q-linear-progress[size="120px"]
+  border-radius: 16px !important
+  box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.1)
+
+  .q-linear-progress__model
+    border-radius: 16px !important
+    box-shadow: 0 2px 8px rgba(79, 172, 254, 0.3)
+
+// ==========================================
+// BREADCRUMB ENHANCEMENTS
+// ==========================================
+
+.q-breadcrumbs
+  font-size: 0.8125rem
+
+  .q-breadcrumbs__el
+    color: rgba(0, 0, 0, 0.5)
+    font-weight: 500
+    transition: color 0.2s ease
+    padding: 0.25rem 0.5rem
+    border-radius: 6px
+
+    &:hover
+      color: #4FACFE
+      background: rgba(79, 172, 254, 0.08)
+
+  .q-breadcrumbs__separator
+    color: rgba(0, 0, 0, 0.3)
+
+  .q-breadcrumbs__el--current
+    color: #4FACFE
+    font-weight: 600
+
+// ==========================================
+// AVATAR & USER ICONS
+// ==========================================
+
+.q-avatar
+  border-radius: 12px !important
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1)
+  border: 2px solid rgba(79, 172, 254, 0.2)
+  transition: all 0.25s ease
+
+  &:hover
+    border-color: rgba(79, 172, 254, 0.5)
+    box-shadow: 0 4px 16px rgba(79, 172, 254, 0.2)
+    transform: scale(1.05)
+
+// ==========================================
+// TIMELINE ENHANCEMENTS
+// ==========================================
+
+.q-timeline
+  .q-timeline__dot
+    background: linear-gradient(135deg, #4FACFE 0%, #6366F1 100%) !important
+    box-shadow: 0 2px 8px rgba(79, 172, 254, 0.4)
+
+  .q-timeline__subtitle
+    color: rgba(0, 0, 0, 0.5)
+    font-weight: 500
+    font-size: 0.75rem
+    letter-spacing: 0.05em
+    text-transform: uppercase
+
+  .q-timeline__title
+    font-weight: 600
+    letter-spacing: -0.01em
+
+  .q-timeline__content
+    padding: 0.75rem 1rem
+    background: rgba(99, 102, 241, 0.03)
+    border-radius: 12px
+    border: 1px solid rgba(99, 102, 241, 0.06)
+
+// ==========================================
+// RATING STARS
+// ==========================================
+
+.q-rating
+  .q-rating__icon
+    transition: all 0.15s ease
+
+    &--active
+      color: #f59e0b !important
+      filter: drop-shadow(0 1px 3px rgba(245, 158, 11, 0.4))
+
+// ==========================================
+// SLIDER ENHANCEMENTS
+// ==========================================
+
+.q-slider
+  .q-slider__track-container
+    background: rgba(99, 102, 241, 0.15) !important
+    border-radius: 4px
+
+  .q-slider__track
+    background: linear-gradient(90deg, #4FACFE 0%, #6366F1 100%) !important
+    border-radius: 4px
+
+  .q-slider__thumb
+    background: linear-gradient(135deg, #4FACFE 0%, #6366F1 100%) !important
+    box-shadow: 0 2px 8px rgba(79, 172, 254, 0.4) !important
+    transition: all 0.2s ease
+
+    &:hover
+      transform: scale(1.2)
+      box-shadow: 0 4px 16px rgba(79, 172, 254, 0.5) !important
+
+// ==========================================
+// BANNER STYLING
+// ==========================================
+
+.q-banner
+  border-radius: 14px !important
+  border: 1px solid rgba(0, 0, 0, 0.06)
+  overflow: hidden
+  position: relative
+
+  &.bg-primary,
+  &.bg-info
+    background: linear-gradient(135deg, rgba(79, 172, 254, 0.15) 0%, rgba(99, 102, 241, 0.15) 100%) !important
+    border-color: rgba(79, 172, 254, 0.2)
+
+  &.bg-positive
+    background: linear-gradient(135deg, rgba(22, 163, 74, 0.15) 0%, rgba(34, 197, 94, 0.15) 100%) !important
+    border-color: rgba(22, 163, 74, 0.2)
+
+  &.bg-negative
+    background: linear-gradient(135deg, rgba(220, 38, 38, 0.15) 0%, rgba(239, 68, 68, 0.15) 100%) !important
+    border-color: rgba(220, 38, 38, 0.2)
+
+  &.bg-warning
+    background: linear-gradient(135deg, rgba(217, 119, 6, 0.15) 0%, rgba(245, 158, 11, 0.15) 100%) !important
+    border-color: rgba(217, 119, 6, 0.2)
