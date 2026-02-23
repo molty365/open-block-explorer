@@ -122,10 +122,37 @@ export default defineComponent({
 <style lang="sass" scoped>
 .q-tab
     text-transform: unset
-    font-size: 16px
+    font-size: 15px
     font-weight: 500
     letter-spacing: -0.01em
-    transition: all 0.2s ease
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1)
+    border-radius: 10px
+    margin: 0 0.25rem
+    padding: 0.5rem 1.25rem
+    min-height: 40px
+    color: rgba(255, 255, 255, 0.65)
+    position: relative
+
+    &::before
+        content: ''
+        position: absolute
+        inset: 0
+        background: linear-gradient(135deg, rgba(79, 172, 254, 0.12) 0%, rgba(99, 102, 241, 0.12) 100%)
+        opacity: 0
+        transition: opacity 0.25s ease
+        border-radius: 10px
+
+    &:hover
+        color: rgba(255, 255, 255, 0.9)
+        &::before
+            opacity: 1
+
+    &.q-tab--active,
+    &.active-tab
+        color: #fff !important
+        &::before
+            opacity: 1
+            background: linear-gradient(135deg, rgba(79, 172, 254, 0.2) 0%, rgba(99, 102, 241, 0.2) 100%)
 
 .logo-header-container
     position: relative
@@ -170,14 +197,19 @@ export default defineComponent({
 
 .active-tab
   text-decoration: none
-  color: var(--q-color-header-text)
+  color: #fff !important
   opacity: 1 !important
 
 .deactive
-  opacity: 0.6
-  font-size: 16px
-  &:hover
-    opacity: 0.85
+  opacity: 1
+  font-size: 15px
+
+// Tab indicator glow effect
+:deep(.q-tab__indicator)
+  height: 3px !important
+  border-radius: 3px 3px 0 0 !important
+  background: linear-gradient(90deg, #00D4FF 0%, #4FACFE 33%, #6366F1 66%, #A855F7 100%) !important
+  box-shadow: 0 0 12px rgba(79, 172, 254, 0.6), 0 0 24px rgba(99, 102, 241, 0.3)
 
 .header-background
   background: rgba(10, 14, 39, 0.85)

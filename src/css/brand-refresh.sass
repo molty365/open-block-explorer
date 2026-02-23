@@ -792,3 +792,316 @@ small
 .q-header .q-spinner,
 .header-support .q-spinner
   filter: drop-shadow(0 0 8px rgba(79, 172, 254, 0.5))
+
+// ==========================================
+// HEADER NAVIGATION — Pill Tabs
+// ==========================================
+
+// Header tabs container
+.header-background .q-tabs
+  background: transparent
+  padding: 0 0.5rem
+
+// Header navigation tabs — pill-style with glow
+.header-background .q-tab
+  border-radius: 10px
+  font-weight: 500
+  font-size: 0.9375rem
+  letter-spacing: -0.01em
+  text-transform: none
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1)
+  padding: 0.5rem 1.25rem
+  min-height: 40px
+  margin: 0 0.25rem
+  position: relative
+  overflow: hidden
+  color: rgba(255, 255, 255, 0.65)
+
+  &::before
+    content: ''
+    position: absolute
+    inset: 0
+    background: linear-gradient(135deg, rgba(79, 172, 254, 0.1) 0%, rgba(99, 102, 241, 0.1) 100%)
+    opacity: 0
+    transition: opacity 0.25s ease
+    border-radius: 10px
+
+  &:hover
+    color: rgba(255, 255, 255, 0.9)
+
+    &::before
+      opacity: 1
+
+  &.q-tab--active
+    color: #fff !important
+
+    &::before
+      opacity: 1
+      background: linear-gradient(135deg, rgba(79, 172, 254, 0.2) 0%, rgba(99, 102, 241, 0.2) 100%)
+
+// Header tab indicator — gradient with glow
+.header-background .q-tab__indicator
+  height: 3px !important
+  border-radius: 3px 3px 0 0 !important
+  background: linear-gradient(90deg, #00D4FF 0%, #4FACFE 33%, #6366F1 66%, #A855F7 100%) !important
+  box-shadow: 0 0 12px rgba(79, 172, 254, 0.6), 0 0 24px rgba(99, 102, 241, 0.3)
+
+// ==========================================
+// DIALOGS & MODALS — Glassmorphism
+// ==========================================
+
+// Dialog backdrop
+.q-dialog__backdrop
+  background: rgba(10, 14, 39, 0.85) !important
+  backdrop-filter: blur(8px)
+
+// Dialog container
+.q-dialog__inner > div
+  border-radius: 20px !important
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), 0 24px 64px rgba(0, 0, 0, 0.2) !important
+  border: 1px solid rgba(255, 255, 255, 0.08)
+  overflow: hidden
+  position: relative
+
+  &::before
+    content: ''
+    position: absolute
+    top: 0
+    left: 0
+    right: 0
+    height: 3px
+    background: linear-gradient(90deg, #00D4FF 0%, #4FACFE 33%, #6366F1 66%, #A855F7 100%)
+    opacity: 0.8
+
+// Dialog cards
+.q-dialog .q-card
+  background: #fff !important
+  border-radius: 20px !important
+  overflow: visible
+
+// Dark dialog cards
+.q-dialog .q-card.bg-dark,
+.q-dialog .q-card.bg-dropdown-dark
+  background: linear-gradient(180deg, #0F1433 0%, #0A0E27 100%) !important
+  border: 1px solid rgba(255, 255, 255, 0.06)
+
+// Dialog header
+.q-dialog .q-card-section:first-child
+  position: relative
+
+.q-dialog .q-card__title,
+.q-dialog .text-h6
+  font-weight: 600
+  letter-spacing: -0.02em
+
+// Dialog actions
+.q-dialog .q-card-actions
+  padding: 1rem 1.5rem
+  gap: 0.75rem
+
+  .q-btn
+    border-radius: 10px !important
+    font-weight: 500
+    min-height: 42px
+    padding: 0 1.5rem
+
+// Close button in dialogs
+.q-dialog .q-btn.q-btn--flat.q-btn--round
+  transition: all 0.2s ease
+
+  &:hover
+    background: rgba(79, 172, 254, 0.1)
+    transform: rotate(90deg)
+
+// ==========================================
+// INPUT & FORM ENHANCEMENTS
+// ==========================================
+
+// Text inputs
+.q-field--filled .q-field__control
+  background: rgba(99, 102, 241, 0.04) !important
+  border: 1px solid rgba(0, 0, 0, 0.08)
+  border-radius: 12px !important
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1)
+  min-height: 48px
+
+  &::before
+    border: none !important
+
+  &::after
+    border: none !important
+
+  &:hover
+    background: rgba(99, 102, 241, 0.06) !important
+    border-color: rgba(79, 172, 254, 0.2)
+
+// Focused input
+.q-field--focused .q-field__control
+  background: rgba(99, 102, 241, 0.08) !important
+  border-color: rgba(79, 172, 254, 0.5) !important
+  box-shadow: 0 0 0 4px rgba(79, 172, 254, 0.1), 0 4px 12px rgba(79, 172, 254, 0.1)
+
+// Input labels
+.q-field__label
+  font-weight: 500
+  color: rgba(0, 0, 0, 0.5)
+  transition: all 0.2s ease
+
+.q-field--focused .q-field__label
+  color: #4FACFE !important
+
+// Dark mode inputs (in header, dialogs with dark bg)
+.q-header .q-field__control,
+.bg-dark .q-field__control,
+.header-support .q-field__control
+  background: rgba(255, 255, 255, 0.08) !important
+  border-color: rgba(255, 255, 255, 0.1)
+
+  &:hover
+    background: rgba(255, 255, 255, 0.12) !important
+    border-color: rgba(255, 255, 255, 0.2)
+
+.q-header .q-field--focused .q-field__control,
+.bg-dark .q-field--focused .q-field__control,
+.header-support .q-field--focused .q-field__control
+  background: rgba(255, 255, 255, 0.15) !important
+  border-color: rgba(79, 172, 254, 0.5) !important
+  box-shadow: 0 0 0 4px rgba(79, 172, 254, 0.15)
+
+// Select dropdowns
+.q-select .q-field__native
+  font-weight: 500
+
+.q-select__dropdown-icon
+  transition: transform 0.25s ease, color 0.2s ease
+
+.q-select--focused .q-select__dropdown-icon
+  transform: rotate(180deg)
+  color: #4FACFE
+
+// Input prefixes/suffixes
+.q-field__prepend,
+.q-field__append
+  color: rgba(0, 0, 0, 0.4)
+  transition: color 0.2s ease
+
+.q-field--focused .q-field__prepend,
+.q-field--focused .q-field__append
+  color: #4FACFE
+
+// Checkboxes
+.q-checkbox__inner
+  font-size: 36px
+  transition: all 0.2s ease
+
+.q-checkbox__bg
+  border-radius: 6px !important
+  border-width: 2px !important
+  border-color: rgba(99, 102, 241, 0.3) !important
+  transition: all 0.2s ease
+
+.q-checkbox__inner--truthy .q-checkbox__bg
+  background: linear-gradient(135deg, #4FACFE 0%, #6366F1 100%) !important
+  border-color: transparent !important
+  box-shadow: 0 2px 8px rgba(79, 172, 254, 0.4)
+
+// Radio buttons
+.q-radio__inner
+  font-size: 36px
+
+.q-radio__bg
+  border-width: 2px !important
+  border-color: rgba(99, 102, 241, 0.3) !important
+  transition: all 0.2s ease
+
+.q-radio__inner--truthy .q-radio__bg
+  color: #4FACFE !important
+  border-color: #4FACFE !important
+
+.q-radio__inner--truthy .q-radio__check
+  background: linear-gradient(135deg, #4FACFE 0%, #6366F1 100%) !important
+  transform: scale(1)
+  box-shadow: 0 2px 8px rgba(79, 172, 254, 0.4)
+
+// ==========================================
+// DATE/TIME PICKERS
+// ==========================================
+
+.q-date,
+.q-time
+  border-radius: 16px !important
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15) !important
+  border: 1px solid rgba(0, 0, 0, 0.06)
+  overflow: hidden
+
+.q-date__header,
+.q-time__header
+  background: linear-gradient(135deg, #4FACFE 0%, #6366F1 100%) !important
+  color: #fff !important
+
+.q-date__calendar-item .q-btn
+  border-radius: 8px !important
+  font-weight: 500
+  transition: all 0.15s ease
+
+.q-date__calendar-item--selected .q-btn
+  background: linear-gradient(135deg, #4FACFE 0%, #6366F1 100%) !important
+  box-shadow: 0 2px 8px rgba(79, 172, 254, 0.4)
+
+.q-date__calendar-item:not(.q-date__calendar-item--selected) .q-btn:hover
+  background: rgba(79, 172, 254, 0.1) !important
+
+// ==========================================
+// EXPANSION ITEMS
+// ==========================================
+
+.q-expansion-item
+  border-radius: 12px
+  margin-bottom: 0.5rem
+  overflow: hidden
+  border: 1px solid rgba(0, 0, 0, 0.04)
+  transition: all 0.2s ease
+
+  &:hover
+    border-color: rgba(79, 172, 254, 0.15)
+
+.q-expansion-item__container
+  border-radius: 12px
+
+.q-expansion-item--expanded
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06)
+  border-color: rgba(79, 172, 254, 0.2)
+
+.q-item__section--avatar
+  min-width: 40px
+
+.q-expansion-item .q-icon
+  transition: transform 0.25s ease
+
+// ==========================================
+// STEPPERS
+// ==========================================
+
+.q-stepper
+  border-radius: 16px !important
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04), 0 8px 24px rgba(0, 0, 0, 0.04) !important
+  overflow: hidden
+
+.q-stepper__tab
+  padding: 1rem
+
+.q-stepper__tab--active .q-stepper__dot
+  background: linear-gradient(135deg, #4FACFE 0%, #6366F1 100%) !important
+  box-shadow: 0 2px 8px rgba(79, 172, 254, 0.4)
+
+.q-stepper__dot
+  font-weight: 600
+  transition: all 0.2s ease
+
+.q-stepper__title
+  font-weight: 600
+  letter-spacing: -0.01em
+
+.q-stepper__caption
+  color: rgba(0, 0, 0, 0.5)
+  font-size: 0.8125rem
