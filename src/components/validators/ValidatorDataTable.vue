@@ -360,8 +360,8 @@ export default defineComponent({
   padding: 0.25rem 0.5rem
   box-shadow: 0 2px 6px rgba(34, 197, 94, 0.3)
 
-// Mobile responsive
-@media screen and (max-width: 1100px)
+// Tablet responsive
+@media screen and (max-width: 1100px) and (min-width: 600px)
   .vd-table__list-col
     min-width: 900px
 
@@ -372,5 +372,84 @@ export default defineComponent({
     min-width: 36px
     height: 36px
     font-size: 0.875rem
+
+// Mobile: card layout instead of horizontal scroll
+@media screen and (max-width: 599px)
+  .vd-table__list-col
+    min-width: unset !important
+    width: 100%
+
+  // Hide the header row on mobile
+  .vd-table__list-col:first-child
+    display: none
+
+  .producer-card .q-card-section > .row
+    flex-wrap: wrap !important
+
+    // Rank
+    > .col-1:first-child
+      width: auto !important
+      max-width: none !important
+      flex: 0 0 auto !important
+      padding: 0.5rem !important
+
+      .text-h6
+        min-width: 32px
+        height: 32px
+        font-size: 0.8rem
+
+    // BP name
+    > .col-3
+      width: auto !important
+      max-width: none !important
+      flex: 1 1 0 !important
+      padding: 0.5rem !important
+
+      .text-h6
+        font-size: 0.875rem !important
+
+      .text-body2
+        font-size: 0.75rem
+
+    // Status chip
+    > .col-2.offset-1
+      margin-left: 0 !important
+      width: auto !important
+      max-width: none !important
+      flex: 0 0 auto !important
+      padding: 0.25rem 0.5rem !important
+
+    // Votes
+    > .col-2:nth-child(4)
+      flex: 0 0 100% !important
+      max-width: 100% !important
+      padding: 0 0.5rem 0.25rem !important
+      font-size: 0.8125rem
+
+      .q-chip
+        font-size: 0.6rem !important
+        padding: 0.1rem 0.3rem !important
+
+    // Reward
+    > .col-2:nth-child(5)
+      flex: 0 0 auto !important
+      width: auto !important
+      max-width: none !important
+      padding: 0 0.5rem 0.5rem !important
+      font-size: 0.8125rem
+
+    // Checkbox
+    > .col-1.select-box
+      flex: 0 0 auto !important
+      width: auto !important
+      max-width: none !important
+      border-radius: 0 0 16px 0 !important
+      padding: 0.25rem !important
+      position: absolute
+      right: 0
+      top: 0
+
+  .producer-card
+    position: relative
 
 </style>
