@@ -14,15 +14,7 @@ const envparsers = require('./src/config/envparser');
 
 module.exports = configure(function (ctx) {
   return {
-    // https://quasar.dev/quasar-cli/supporting-ts
-    supportTS: {
-      tsCheckerConfig: {
-        eslint: {
-          enabled: true,
-          files: './src/**/*.{ts,tsx,js,jsx,vue}'
-        }
-      }
-    },
+    // TypeScript support auto-detected via tsconfig.json in app-webpack v4
 
     // https://quasar.dev/quasar-cli/prefetch-feature
     // preFetch: true,
