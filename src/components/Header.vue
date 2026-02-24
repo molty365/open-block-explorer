@@ -52,25 +52,15 @@ export default defineComponent({
 
 <template>
 <div class="header-background">
-    <div class="row text-center q-pt-sm items-center justify-between header-top-row">
-        <div class="logo-container col-auto">
-            <div class="q-px-xs-xs q-px-sm-xs q-px-md-md q-px-lg-md">
-                <div class="logo-header-container">
-                    <div class="logo-chain-selector-container">
-                        <a class="float-left" href="/">
-                            <img v-if="isLarge" class="logo" :src="largeLogoPath">
-                            <img v-else class="logo-token" :src="smallLogoPath">
-                        </a>
-                        <ChainsMenu v-if="showMultichainSelector"/>
-                    </div>
-                    <div v-if="isTestnet" class="testnet-text">TESTNET</div>
-                </div>
-            </div>
-        </div>
-        <div class="col header-search-col">
-            <div class="q-px-xs-xs q-px-sm-xs q-px-md-md q-px-lg-md">
-                <HeaderSearch/>
-            </div>
+    <div class="row no-wrap items-center q-px-sm q-pt-sm q-pb-none q-gutter-x-sm header-top-row">
+        <a href="/">
+            <img v-if="isLarge" class="logo" :src="largeLogoPath">
+            <img v-else class="logo-token" :src="smallLogoPath">
+        </a>
+        <ChainsMenu v-if="showMultichainSelector"/>
+        <div v-if="isTestnet" class="testnet-text">TESTNET</div>
+        <div class="col">
+            <HeaderSearch/>
         </div>
         <LoginHandler v-if="!headerSettings.hideLoginHandler"/>
     </div>
