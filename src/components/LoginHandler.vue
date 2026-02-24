@@ -25,12 +25,8 @@ export default defineComponent({
         };
 
         onMounted(async () => {
-            // Manually append the dialog to the page, since this is after the DOM events
-            try {
-                ui.appendDialogElement();
-            } catch (e) {
-                console.warn('Wharf dialog append deferred:', e);
-            }
+            // Dialog element will be appended lazily when login() is called
+            // appendDialogElement() causes "closer.onclick" errors on Quasar 2.18
             // Attempt to restore any existing sessions
             try {
                 // This is only needed because the application state doesn't allow dynamic switching of chains
