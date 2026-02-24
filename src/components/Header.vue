@@ -219,22 +219,36 @@ export default defineComponent({
   .header-top-row
     padding: 0.25rem 0.5rem !important
     flex-wrap: nowrap !important
-    gap: 0.5rem
+    gap: 0.375rem
+    align-items: center !important
+    text-align: left !important
 
   .header-search-col
     min-width: 0
+    flex: 1 1 0 !important
 
   .logo-container
     flex-shrink: 0
+    flex-grow: 0 !important
 
   .logo-token
-    width: 32px !important
-    height: 32px !important
+    width: 28px !important
+    height: 28px !important
+
+  // LoginHandler col
+  :deep(.col-auto)
+    flex-shrink: 0
+
+  :deep(.btn-login)
+    width: auto !important
+    min-height: 32px !important
+    padding: 0.2rem 0.75rem !important
+    font-size: 0.75rem !important
 
   .q-tabs
     .q-tab
-      padding: 0.375rem 0.75rem
+      padding: 0.375rem 0.625rem
       font-size: 13px
-      min-height: 36px
+      min-height: 34px
 
 </style>

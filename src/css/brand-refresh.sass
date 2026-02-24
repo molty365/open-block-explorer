@@ -3620,3 +3620,45 @@ a:focus-visible
     display: none !important
   .container-margin
     margin-top: 0.5rem !important
+
+// ==========================================
+// MOBILE: Pagination compact
+// ==========================================
+@media (max-width: 599px)
+  .q-table__bottom,
+  .trx-table .items-center.justify-end
+    flex-wrap: wrap !important
+    gap: 0.5rem !important
+    padding: 0.75rem 0.5rem !important
+
+  .q-table__bottom .q-btn,
+  .trx-table .items-center .q-btn
+    min-height: 32px !important
+    padding: 0.25rem 0.75rem !important
+    font-size: 0.7rem !important
+    width: auto !important
+    flex: 0 0 auto !important
+
+    &[outline]
+      background: rgba(99, 102, 241, 0.04) !important
+      border: 1px solid rgba(99, 102, 241, 0.15) !important
+
+      .q-btn__content
+        color: #4FACFE
+
+      &:hover
+        transform: none !important
+        box-shadow: none !important
+
+  // Pagination row: inline buttons
+  .q-table__bottom .q-table__control,
+  .q-table__bottom > div
+    display: flex !important
+    flex-wrap: wrap !important
+    gap: 0.25rem
+    align-items: center
+
+  // Proposal table: allow horizontal scroll
+  .q-table__middle
+    overflow-x: auto !important
+
