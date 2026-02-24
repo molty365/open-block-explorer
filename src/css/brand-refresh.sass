@@ -3662,3 +3662,41 @@ a:focus-visible
   .q-table__middle
     overflow-x: auto !important
 
+
+// ==========================================
+// MOBILE HEADER FIX (global override)
+// ==========================================
+@media (max-width: 599px)
+  .header-background .header-top-row
+    flex-wrap: nowrap !important
+    padding: 0.25rem 0.5rem !important
+    gap: 0.375rem !important
+    align-items: center !important
+
+  .header-background .header-top-row > *
+    flex-shrink: 1
+
+  .header-background .logo-container
+    flex-shrink: 0 !important
+    flex-grow: 0 !important
+    max-width: 50px !important
+
+  .header-background .logo-token
+    width: 28px !important
+    height: 28px !important
+
+  .header-background .header-search-col
+    flex: 1 1 0 !important
+    min-width: 0 !important
+    overflow: hidden
+
+  // LoginHandler
+  .header-background .btn-login
+    width: auto !important
+    min-height: 32px !important
+    padding: 0.2rem 0.6rem !important
+    font-size: 0.7rem !important
+
+  .header-background .q-px-xs-xs
+    padding-left: 0 !important
+    padding-right: 0 !important
