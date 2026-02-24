@@ -3611,3 +3611,12 @@ a:focus-visible
     min-height: 36px !important
     padding: 0.25rem 0.75rem !important
     font-size: 0.8125rem !important
+
+// Hide map chevron toggle on mobile — wastes vertical space
+@media (max-width: 599px)
+  .chevron-toggle
+    display: none !important
+  .header-support
+    display: none !important
+  .container-margin
+    margin-top: 0.5rem !important

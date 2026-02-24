@@ -52,8 +52,8 @@ export default defineComponent({
 
 <template>
 <div class="header-background">
-    <div class="row text-center q-pt-sm justify-between q-pt-md">
-        <div class="logo-container col-xs-3 col-sm-2 col-md-2 col-lg-2">
+    <div class="row text-center q-pt-sm items-center justify-between header-top-row">
+        <div class="logo-container col-auto">
             <div class="q-px-xs-xs q-px-sm-xs q-px-md-md q-px-lg-md">
                 <div class="logo-header-container">
                     <div class="logo-chain-selector-container">
@@ -67,13 +67,9 @@ export default defineComponent({
                 </div>
             </div>
         </div>
-        <div class="col-xs-4 col-sm-6 col-md-4 col-lg-6">
+        <div class="col header-search-col">
             <div class="q-px-xs-xs q-px-sm-xs q-px-md-md q-px-lg-md">
-                <div class="row justify-center full-width">
-                    <div class="col-12">
-                        <HeaderSearch/>
-                    </div>
-                </div>
+                <HeaderSearch/>
             </div>
         </div>
         <LoginHandler v-if="!headerSettings.hideLoginHandler"/>
@@ -217,5 +213,28 @@ export default defineComponent({
   -webkit-backdrop-filter: blur(20px)
   border-bottom: 1px solid rgba(255, 255, 255, 0.06)
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.15)
+
+// Mobile header: single row, compact
+@media (max-width: 599px)
+  .header-top-row
+    padding: 0.25rem 0.5rem !important
+    flex-wrap: nowrap !important
+    gap: 0.5rem
+
+  .header-search-col
+    min-width: 0
+
+  .logo-container
+    flex-shrink: 0
+
+  .logo-token
+    width: 32px !important
+    height: 32px !important
+
+  .q-tabs
+    .q-tab
+      padding: 0.375rem 0.75rem
+      font-size: 13px
+      min-height: 36px
 
 </style>

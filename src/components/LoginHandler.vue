@@ -57,7 +57,7 @@ export default defineComponent({
 </script>
 
 <template>
-<div class="col-xs-5 col-sm-3 col-md-2 col-lg-2">
+<div class="col-auto col-sm-3 col-md-2 col-lg-2">
     <div class="q-px-xs-xs q-px-sm-xs q-px-md-md q-px-lg-md">
         <LoginHandlerDropdown v-if="account"/>
         <q-btn
