@@ -77,7 +77,10 @@ module.exports = configure(function (ctx) {
         type: 'http'
       },
       port: 8080,
-      open: true, // opens browser window automatically
+      open: false,
+      client: {
+        overlay: false  // Disable the red error overlay on mobile
+      },
       historyApiFallback: {
         disableDotRule: true
       }
