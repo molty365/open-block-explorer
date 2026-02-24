@@ -3753,3 +3753,32 @@ a:focus-visible
         min-height: 28px !important
         padding: 0.15rem 0.5rem !important
         font-size: 0.7rem !important
+
+// ==========================================
+// MOBILE: Account transactions table fix
+// ==========================================
+@media (max-width: 599px)
+  // Hide DATA column on ALL transaction tables (4th column)
+  .q-table th:nth-child(4),
+  .q-table td:nth-child(4)
+    display: none !important
+
+  // Also handle when there are more columns
+  .trx-table--fixed-layout .q-table
+    table-layout: auto !important
+
+    td, th
+      padding: 0.375rem 0.25rem !important
+      font-size: 0.75rem !important
+      word-break: break-all
+
+    // ACTION column — don't overflow
+    td:nth-child(3)
+      max-width: 200px
+
+    // Transaction ID column
+    td:first-child
+      max-width: 90px
+      overflow: hidden
+      text-overflow: ellipsis
+      white-space: nowrap
