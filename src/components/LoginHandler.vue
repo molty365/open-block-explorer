@@ -26,7 +26,11 @@ export default defineComponent({
 
         onMounted(async () => {
             // Manually append the dialog to the page, since this is after the DOM events
-            ui.appendDialogElement();
+            try {
+                ui.appendDialogElement();
+            } catch (e) {
+                console.warn('Wharf dialog append deferred:', e);
+            }
             // Attempt to restore any existing sessions
             try {
                 // This is only needed because the application state doesn't allow dynamic switching of chains

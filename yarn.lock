@@ -3998,10 +3998,10 @@
   dependencies:
     tslib "^2.1.0"
 
-"@wharfkit/web-renderer@^1.2.4":
-  version "1.2.4"
-  resolved "https://registry.yarnpkg.com/@wharfkit/web-renderer/-/web-renderer-1.2.4.tgz#7f04442f996e139239148d8f1e75a372785df669"
-  integrity sha512-wEeR672LcYqTHqPE3HmjcrsPp9ODyi0TBPDuD67FpvNJ582C26ZeyQok99f8MHvsaQ2CkYLkKW+AAn3jzbLHEQ==
+"@wharfkit/web-renderer@^1.4.0":
+  version "1.4.3"
+  resolved "https://registry.yarnpkg.com/@wharfkit/web-renderer/-/web-renderer-1.4.3.tgz#79adb3ac31f28570ffb86c24234e5af528fa9b8d"
+  integrity sha512-rNmToX67Rv/QOLj8USrS9wDH0OKXq5H6jGqJu5BIcLnc1Equ/hzMHdQ3oW830Bd0AEqjI57JK8nxESC0Q/w4Sw==
 
 "@xtuc/ieee754@^1.2.0":
   version "1.2.0"
