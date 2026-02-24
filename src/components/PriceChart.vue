@@ -137,25 +137,23 @@ export default defineComponent({
                 :highcharts="hcInstance"
             />
         </div>
-        <div class="col-xs-12 col-sx-12 col-md-4 col-lg-4 col-xs-4 q-pa-md">
-            <div class="col-12 flex row q-mt-md">
-                <div class="col-6 chart-info">
+        <div class="col-xs-12 col-md-4 q-pa-md">
+            <div class="stat-grid">
+                <div class="chart-info">
                     <p>TOKEN PRICE</p>
                     <p class="sub-title">{{ tokenPrice}}</p>
                     <p class="border-line"></p>
                 </div>
-                <div class="col-6 chart-info">
+                <div class="chart-info">
                     <p>MARKETCAP</p>
                     <p class="sub-title">{{ marketCap }}</p>
                     <p class="border-line"></p>
                 </div>
-            </div>
-            <div class="col-12 flex row">
-                <div class="col-6 chart-info">
+                <div class="chart-info">
                     <p>24H CHANGE</p>
                     <p class="sub-title">{{ dayChange  }}</p>
                 </div>
-                <div class="col-6 chart-info">
+                <div class="chart-info">
                     <p>24H VOLUME</p>
                     <p class="sub-title">{{ dayVolume }}</p>
                 </div>
@@ -167,6 +165,11 @@ export default defineComponent({
 
 <style lang="sass" scoped>
 $medium: 750px
+
+.stat-grid
+    display: grid
+    grid-template-columns: 1fr 1fr
+    gap: 0.5rem
 
 .chart-info
     @media screen and (max-width: $medium)
