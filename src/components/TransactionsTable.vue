@@ -608,7 +608,7 @@ export default defineComponent({
                         <q-btn-dropdown
                             v-if="showAccountFilter"
                             ref="accounts_dropdown"
-                            class="q-ml-xs q-mr-xs button-primary q-btn--no-text-transform"
+                            class="q-ml-xs q-mr-xs filter-dropdown q-btn--no-text-transform"
                             no-caps
                             :color="accountsDisplay === '' ? 'primary': 'secondary'"
                             :label="accountsDisplay === '' ? 'Accounts' : accountsDisplay"
@@ -622,7 +622,7 @@ export default defineComponent({
                         </q-btn-dropdown>
                         <q-btn-dropdown
                             ref="actions_dropdown"
-                            class="q-ml-xs q-mr-xs button-primary q-btn--no-text-transform"
+                            class="q-ml-xs q-mr-xs filter-dropdown q-btn--no-text-transform"
                             :color="actionsDisplay === '' ? 'primary': 'secondary'"
                             :label="actionsDisplay === '' ? 'Actions' : actionsDisplay"
                         >
@@ -647,7 +647,7 @@ export default defineComponent({
                                 </div>
                             </div>
                         </q-btn-dropdown>
-                        <q-btn-dropdown class="q-ml-xs q-mr-xs button-primary q-btn--no-text-transform" :color="dateDisplay === '' ? 'primary': 'secondary'" :label="dateDisplay === '' ? 'Date' : dateDisplay">
+                        <q-btn-dropdown class="q-ml-xs q-mr-xs filter-dropdown q-btn--no-text-transform" :color="dateDisplay === '' ? 'primary': 'secondary'" :label="dateDisplay === '' ? 'Date' : dateDisplay">
                             <div class="q-pa-md dropdown-filter">
                                 <div class="row">
                                     <q-input
@@ -739,7 +739,7 @@ export default defineComponent({
                         <q-btn-dropdown
                             v-if="showTokenFilter"
                             ref="token_dropdown"
-                            class="q-ml-xs q-mr-xs button-primary q-btn--no-text-transform"
+                            class="q-ml-xs q-mr-xs filter-dropdown q-btn--no-text-transform"
                             :color="!tokenDisplay ? 'primary': 'secondary'"
                             :label="!tokenDisplay ? 'Token' : tokenDisplay"
                         >
@@ -1028,13 +1028,27 @@ $medium:920px
 
 .dropdown-filter
   max-width: 300px
-  background: linear-gradient(180deg, #0F1433 0%, #0A0E27 100%)
+  background: #fff
   border-radius: 14px
-  border: 1px solid rgba(79, 172, 254, 0.15)
+  border: 1px solid rgba(0, 0, 0, 0.08)
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08)
 
 .expanded-row
   background: linear-gradient(135deg, rgba(99, 102, 241, 0.04) 0%, rgba(79, 172, 254, 0.04) 100%) !important
   border-left: 3px solid rgba(99, 102, 241, 0.3) !important
+
+// Filter dropdown buttons — subtle, not gradient CTAs
+.filter-dropdown
+  background: rgba(99, 102, 241, 0.06) !important
+  border: 1px solid rgba(99, 102, 241, 0.15) !important
+  border-radius: 10px !important
+  font-weight: 500
+  color: #1A1A2E !important
+  box-shadow: none !important
+  &:hover
+    background: rgba(99, 102, 241, 0.1) !important
+  .q-btn-dropdown__arrow
+    color: #6366F1
 
 .q-btn.q-btn--no-text-transform
   text-transform: none

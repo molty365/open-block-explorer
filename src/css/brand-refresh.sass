@@ -718,19 +718,23 @@ h1, h2, h3, h4, h5, h6,
   .q-btn__content
     text-transform: none
 
+  &.filter-dropdown,
   &.button-primary
-    background: linear-gradient(135deg, rgba(79, 172, 254, 0.1) 0%, rgba(99, 102, 241, 0.1) 100%) !important
-    border: 1px solid rgba(79, 172, 254, 0.2) !important
-    color: #4FACFE !important
+    background: rgba(99, 102, 241, 0.06) !important
+    border: 1px solid rgba(99, 102, 241, 0.15) !important
+    color: #1A1A2E !important
     box-shadow: none !important
 
     &:hover
-      background: linear-gradient(135deg, rgba(79, 172, 254, 0.15) 0%, rgba(99, 102, 241, 0.15) 100%) !important
-      border-color: rgba(79, 172, 254, 0.3) !important
-      transform: translateY(-1px)
+      background: rgba(99, 102, 241, 0.1) !important
+      border-color: rgba(99, 102, 241, 0.25) !important
+      transform: none
 
     .q-icon
-      color: #4FACFE
+      color: #6366F1
+
+    .q-btn-dropdown__arrow
+      color: #6366F1
 
   // Active/selected state
   &.bg-secondary
@@ -1356,8 +1360,8 @@ small
 // ==========================================
 
 // Primary gradient CTA buttons with shine effect
-.q-btn.bg-primary,
-.q-btn[color="primary"]:not([outline]):not([flat])
+.q-btn.bg-primary:not(.filter-dropdown),
+.q-btn[color="primary"]:not([outline]):not([flat]):not(.filter-dropdown)
   background: linear-gradient(135deg, #4FACFE 0%, #6366F1 50%, #A855F7 100%) !important
   background-size: 200% 200%
   border-radius: 12px !important
@@ -3547,3 +3551,63 @@ a:focus-visible
 .chart-info:active
   transform: scale(0.98)
   transition: transform 0.1s ease
+
+// ==========================================
+// FILTER DROPDOWN OVERRIDES
+// ==========================================
+// Prevent q-btn-dropdown filter buttons from getting CTA gradient
+.q-btn-dropdown.filter-dropdown .q-btn
+  background: transparent !important
+  box-shadow: none !important
+
+.q-btn-dropdown.filter-dropdown .q-btn .q-btn__content
+  color: #1A1A2E !important
+
+.q-btn-dropdown.filter-dropdown.bg-primary .q-btn,
+.q-btn-dropdown.filter-dropdown.bg-secondary .q-btn
+  background: transparent !important
+  box-shadow: none !important
+
+// ==========================================
+// MOBILE FILTER FIX
+// ==========================================
+@media (max-width: 599px)
+  // Filter dropdowns: compact, no gradient, inline
+  .q-btn-dropdown
+    border-radius: 8px !important
+    min-height: 36px !important
+    font-size: 0.8125rem !important
+
+  .q-btn-dropdown.filter-dropdown
+    background: rgba(99, 102, 241, 0.06) !important
+    border: 1px solid rgba(99, 102, 241, 0.12) !important
+    box-shadow: none !important
+    margin: 2px !important
+
+  .trx-table--filter-buttons
+    flex-wrap: wrap
+    gap: 4px !important
+
+  // Prevent price box clipping
+  .price-box
+    margin-top: 0.5rem !important
+    border-radius: 12px !important
+
+  .price-box-position
+    margin-top: 0.5rem !important
+
+  // Header support area - no overlap on mobile
+  .header-support
+    min-height: auto !important
+    padding-bottom: 0.5rem
+
+  // Search bar in header - ensure visible
+  .q-header .q-field__control
+    background: rgba(255, 255, 255, 0.1) !important
+    border: 1px solid rgba(255, 255, 255, 0.15) !important
+
+  // Fix Connect button sizing
+  .q-header .button-primary
+    min-height: 36px !important
+    padding: 0.25rem 0.75rem !important
+    font-size: 0.8125rem !important
